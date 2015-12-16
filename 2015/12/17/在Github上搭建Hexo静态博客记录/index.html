@@ -1,0 +1,361 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>在Github上搭建Hexo静态博客记录 | YaCHEN Factory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="YaCHEN">
+    
+    <meta name="description" content="在Github上搭建Hexo静态博客记录
+一直以来只有一个简陋的cnblogs上的博客，还基本都是高中时的东西。大学四年更新了3次，实在是惭愧，今晚和我雪说到这个，借此机会用Hexo在Github上搭个静态博客（然而我雪自己写了个静态化程序，膜之），准备好好记录下自己到底学了些什么。以下就是过程的记">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="YaCHEN Factory" title="YaCHEN Factory"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="YaCHEN Factory">YaCHEN Factory</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yachen4ever.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/17/在Github上搭建Hexo静态博客记录/" title="在Github上搭建Hexo静态博客记录" itemprop="url">在Github上搭建Hexo静态博客记录</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yachen4ever.github.io" title="YaCHEN">YaCHEN</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-16T18:40:25.000Z" itemprop="datePublished">2015-12-17</time>
+    更新日期:<time datetime="2015-12-16T19:30:47.638Z" itemprop="dateModified">2015-12-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5728Github_u4E0A_u642D_u5EFAHexo_u9759_u6001_u535A_u5BA2_u8BB0_u5F55"><span class="toc-number">1.</span> <span class="toc-text">在Github上搭建Hexo静态博客记录</span></a></li></ol>
+		</div>
+		
+		<h1 id="u5728Github_u4E0A_u642D_u5EFAHexo_u9759_u6001_u535A_u5BA2_u8BB0_u5F55"><a href="#u5728Github_u4E0A_u642D_u5EFAHexo_u9759_u6001_u535A_u5BA2_u8BB0_u5F55" class="headerlink" title="在Github上搭建Hexo静态博客记录"></a>在Github上搭建Hexo静态博客记录</h1><hr>
+<p>一直以来只有一个简陋的cnblogs上的博客，还基本都是高中时的东西。大学四年更新了3次，实在是惭愧，今晚和我雪说到这个，借此机会用Hexo在Github上搭个静态博客（然而我雪自己写了个静态化程序，膜之），准备好好记录下自己到底学了些什么。以下就是过程的记录和遇到的一些问题的解决办法了。</p>
+<blockquote>
+<ul>
+<li>一、准备一些工具</li>
+</ul>
+</blockquote>
+<p>你需要以下软件：</p>
+<ol>
+<li>Git (<a href="http://git-scm.com/downloads" target="_blank" rel="external">http://git-scm.com/downloads</a>)</li>
+<li>node.js (<a href="http://nodejs.org/download" target="_blank" rel="external">http://nodejs.org/download</a>)</li>
+</ol>
+<p>下载好后两者都可一路回车法进行安装。Git需要配置SSH-Key，此过程使用过GitHub的都明白，此处不再赘述。完成后打开Git Bash，执行如下命令:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>这样你就安装好了hexo主程序。</p>
+<blockquote>
+<ul>
+<li>二、使用你的Github账户新建一个Repository</li>
+</ul>
+</blockquote>
+<p>请注意，新建Repo时请注意Repository name请使用username.github.io。username换成你的用户名。只有这种方式建立的Repo才可以使用Github Pages直接访问。</p>
+<blockquote>
+<ul>
+<li>三、创建博客目录</li>
+</ul>
+</blockquote>
+<p>在git bash中选择好博客存放目录，执行<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<p>hexo会自动在此文件夹生成建立博客需要的文件，接着执行<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install&#10;$ npm install hexo-server&#10;$ npm install hexo-deployer-git&#10;`</span><br></pre></td></tr></table></figure></p>
+<p>以上装好hexo-server（在hexo3.0版本中hexo-server从hexo中分离了出来）还有hexo用于git的部署工具。</p>
+<p>此时即可生成静态网页后输入hexo server测试服务器是否正常运行。git bash应该会显示：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g&#10;$ hexo server&#10;[info] Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
+<p>这里的0.0.0.0是默认配置ip，可以在./_config.yml中修改，不过默认的也没有问题，打开<a href="http://localhost:4000应该会看到一篇默认的文章。" target="_blank" rel="external">http://localhost:4000应该会看到一篇默认的文章。</a></p>
+<blockquote>
+<ul>
+<li>四、配置_config.yml</li>
+</ul>
+</blockquote>
+<p>hexo所有配置都在_config.yml文件中，在<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Site</span></span><br><span class="line"><span class="label">title:</span> YaCHEN Factory</span><br><span class="line"><span class="label">subtitle:</span> </span><br><span class="line"><span class="label">description:</span> </span><br><span class="line"><span class="label">author:</span> YaCHEN</span><br><span class="line"><span class="label">language:</span></span><br><span class="line"><span class="label">timezone:</span></span><br><span class="line"><span class="preprocessor"># URL</span></span><br><span class="line"><span class="preprocessor">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="label">url:</span> http://www.xuchen.wang</span><br><span class="line"><span class="label">root:</span> /</span><br><span class="line"><span class="label">permalink:</span> :year/:month/:day/:title/</span><br><span class="line"><span class="label">permalink_defaults:</span></span><br></pre></td></tr></table></figure></p>
+<p>中，请将对应信息改为自己的。</p>
+<p>而在尾部<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Deployment</span></span><br><span class="line"><span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="title">deploy</span>: </span><br><span class="line">  <span class="typedef"><span class="keyword">type</span>: git</span></span><br><span class="line">  repo: git@github.com:yachen4ever/yachen4ever.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>增加一行repo: 你在github上对应repository的SSH地址，请注意必须使用SSH地址，HTTPS会导致错误。</p>
+<p>还有一个必须要注意的地方，<strong>冒号后面一定要有一个空格</strong>，否则会报错。</p>
+<p>此时即可查看<a href="http://yourname.github.io/是否提交成功。" target="_blank" rel="external">http://yourname.github.io/是否提交成功。</a></p>
+<blockquote>
+<ul>
+<li>五、学会使用</li>
+</ul>
+</blockquote>
+<p>每次部署博客，都可按以下三步来进行。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo clean</span><br><span class="line"><span class="variable">$ </span>hexo generate</span><br><span class="line"><span class="variable">$ </span>hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>命令涵义就是字面意思，同时，后两条命令分别也可以简写为<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></table></figure></p>
+<p>而创建新博客使用<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span><span class="variable">$ </span>hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
+<p>具体请参见:<a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">https://hexo.io/docs/writing.html</a><br>推荐使用 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a> 如果你没有接触过Markdown</p>
+<blockquote>
+<ul>
+<li>六、一些问题</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>如果你需要绑定独立域名，请参考：<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/" target="_blank" rel="external">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/</a><br>其中加入完后请将CNAME文件在./source中放置一份，这样下次hexo deploy时就不会使CNAME文件消失了。</p>
+</li>
+<li><p>部署提示 ｀event type error <em>*</em>｀<br>出现该问题是因为安装了git bash没有配置到环境变量path中，添加进去试试。</p>
+</li>
+<li><p>我想换一个主题。<br>这里是官方主题预览：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>选好像要的主题后在git bash里输入</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">clone</span> <span class="title">该Theme</span> SSH地址或HTTPS地址 themes/主题名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>并在./_config.yml中修改<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">新主题名</span></span><br></pre></td></tr></table></figure></p>
+<p>重新部署即可。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yachen4ever.github.io/2015/12/17/在Github上搭建Hexo静态博客记录/" data-title="在Github上搭建Hexo静态博客记录 | YaCHEN Factory" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/12/16/Hello-World-0/"  title="Hello World">
+ <strong>NEXT:</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5728Github_u4E0A_u642D_u5EFAHexo_u9759_u6001_u535A_u5BA2_u8BB0_u5F55"><span class="toc-number">1.</span> <span class="toc-text">在Github上搭建Hexo静态博客记录</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yachen4ever.github.io" target="_blank" title="YaCHEN">YaCHEN</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+  </body>
+</html>
