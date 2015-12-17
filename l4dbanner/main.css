@@ -1,0 +1,30 @@
+/* CSS Document */
+
+* { outline: none }
+
+body {
+	background-color:#000000;
+	padding:0;
+	margin:0;
+}
+
+#mainContainer {
+	background-image:url(images/bg_main.jpg);
+	background-repeat:no-repeat;
+	background-color:#000000;
+	background-position:center top;
+	padding:0;
+	margin:0;
+	height:598px;
+}
+
+#pageContainer {
+	text-align:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	background-repeat:no-repeat;
+	width:1000px;
+	height:700px;
+	position:relative;
+	background-image:url(images/bg_server.jpg);
+}
