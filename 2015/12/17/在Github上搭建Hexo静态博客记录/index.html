@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-16T18:40:25.000Z" itemprop="datePublished">2015-12-17</time>
-    更新日期:<time datetime="2015-12-17T13:39:24.515Z" itemprop="dateModified">2015-12-17</time>
+    更新日期:<time datetime="2015-12-17T17:44:24.267Z" itemprop="dateModified">2015-12-18</time>
     
   </p>
 </header>
@@ -117,19 +117,19 @@
 <li>三、创建博客目录</li>
 </ul>
 </blockquote>
-<p>在git bash中选择好博客存放目录，执行<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
-<p>hexo会自动在此文件夹生成建立博客需要的文件，接着执行<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install&#10;$ npm install hexo-server&#10;$ npm install hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
+<p>在git bash中选择好博客存放目录，执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<p>hexo会自动在此文件夹生成建立博客需要的文件，接着执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ npm install hexo-server</span><br><span class="line">$ npm install hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
 <p>以上装好hexo-server（在hexo3.0版本中hexo-server从hexo中分离了出来）还有hexo用于git的部署工具。</p>
-<p>此时即可生成静态网页后输入hexo server测试服务器是否正常运行。git bash应该会显示：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g&#10;$ hexo server&#10;[info] Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
+<p>此时即可生成静态网页后输入hexo server测试服务器是否正常运行。git bash应该会显示：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo server</span><br><span class="line">[info] Hexo is running at http://<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">4000</span>/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
 <p>这里的0.0.0.0是默认配置ip，可以在./_config.yml中修改，不过默认的也没有问题，打开<a href="http://localhost:4000应该会看到一篇默认的文章。" target="_blank" rel="external">http://localhost:4000应该会看到一篇默认的文章。</a></p>
 <blockquote>
 <ul>
 <li>四、配置_config.yml</li>
 </ul>
 </blockquote>
-<p>hexo所有配置都在_config.yml文件中，在<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Site</span></span><br><span class="line"><span class="label">title:</span> YaCHEN Factory</span><br><span class="line"><span class="label">subtitle:</span> </span><br><span class="line"><span class="label">description:</span> </span><br><span class="line"><span class="label">author:</span> YaCHEN</span><br><span class="line"><span class="label">language:</span></span><br><span class="line"><span class="label">timezone:</span></span><br><span class="line"><span class="preprocessor"># URL</span></span><br><span class="line"><span class="preprocessor">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="label">url:</span> http://www.xuchen.wang</span><br><span class="line"><span class="label">root:</span> /</span><br><span class="line"><span class="label">permalink:</span> :year/:month/:day/:title/</span><br><span class="line"><span class="label">permalink_defaults:</span></span><br></pre></td></tr></table></figure></p>
+<p>hexo所有配置都在_config.yml文件中，在<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: YaCHEN Factory</span><br><span class="line">subtitle: </span><br><span class="line">description: </span><br><span class="line">author: YaCHEN</span><br><span class="line">language:</span><br><span class="line">timezone:</span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: http://www.xuchen.wang</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure></p>
 <p>中，请将对应信息改为自己的。</p>
-<p>而在尾部<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Deployment</span></span><br><span class="line"><span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="title">deploy</span>: </span><br><span class="line">  <span class="typedef"><span class="keyword">type</span>: git</span></span><br><span class="line">  repo: git@github.com:yachen4ever/yachen4ever.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>而在尾部<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yachen4ever/yachen4ever.github.io.git</span><br></pre></td></tr></table></figure></p>
 <p>增加一行repo: 你在github上对应repository的SSH地址，请注意必须使用SSH地址，HTTPS会导致错误。</p>
 <p>还有一个必须要注意的地方，<strong>冒号后面一定要有一个空格</strong>，否则会报错。</p>
 <p>此时即可查看<a href="http://yourname.github.io/是否提交成功。" target="_blank" rel="external">http://yourname.github.io/是否提交成功。</a></p>
@@ -138,9 +138,9 @@
 <li>五、学会使用</li>
 </ul>
 </blockquote>
-<p>每次部署博客，都可按以下三步来进行。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo clean</span><br><span class="line"><span class="variable">$ </span>hexo generate</span><br><span class="line"><span class="variable">$ </span>hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>命令涵义就是字面意思，同时，后两条命令分别也可以简写为<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g</span><br><span class="line"><span class="variable">$ </span>hexo d</span><br></pre></td></tr></table></figure></p>
-<p>而创建新博客使用<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">[layout]</span> &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
+<p>每次部署博客，都可按以下三步来进行。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>命令涵义就是字面意思，同时，后两条命令分别也可以简写为<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>而创建新博客使用<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
 <p>具体请参见:<a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">https://hexo.io/docs/writing.html</a><br>推荐使用 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a> 如果你没有接触过Markdown</p>
 <blockquote>
 <ul>
@@ -153,10 +153,10 @@
 <li><p>部署提示 ｀event type error <em>*</em>｀<br>出现该问题是因为安装了git bash没有配置到环境变量path中，添加进去试试。</p>
 </li>
 <li><p>我想换一个主题。<br>这里是官方主题预览：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>选好像要的主题后在git bash里输入</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">clone</span> <span class="title">该Theme</span> SSH地址或HTTPS地址 themes/主题名</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> 该Theme SSH地址或HTTPS地址 themes/主题名</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>并在./_config.yml中修改<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">theme</span>: <span class="string">新主题名</span></span><br></pre></td></tr></table></figure></p>
+<p>并在./_config.yml中修改<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: 新主题名</span><br></pre></td></tr></table></figure></p>
 <p>重新部署即可。</p>
   
 	</div>
