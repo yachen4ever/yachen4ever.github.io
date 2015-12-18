@@ -1,0 +1,382 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Linux环境搭建Left 4 Dead 2/求生之路2专用服务器 | YaCHEN Factory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="YaCHEN">
+    
+    <meta name="description" content="首先说明，此文章所述搭建过程仅适用于Steam正版L4D2，盗版开服需要自己下载服务器破解补丁。作者和朋友们都在Steam上玩，请恕本文章并不涉及
+我和范峥以及一群朋友经常会聚在一起玩求生之路2，直接用本地建主的话ping会比较高，我们就在阿里云上搭了一个Left 4 Dead 2 Dedicate">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="YaCHEN Factory" title="YaCHEN Factory"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="YaCHEN Factory">YaCHEN Factory</a></h1>
+				<h2 class="blog-motto">A CS Student&#39;s Individual Blog Site</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/friends">友链</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yachen4ever.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/18/l4d2server/" title="Linux环境搭建Left 4 Dead 2/求生之路2专用服务器" itemprop="url">Linux环境搭建Left 4 Dead 2/求生之路2专用服务器</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yachen4ever.github.io" title="YaCHEN">YaCHEN</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-18T06:52:24.000Z" itemprop="datePublished">2015-12-18</time>
+    更新日期:<time datetime="2015-12-18T08:39:39.465Z" itemprop="dateModified">2015-12-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001SteamCMD_u7684_u4E0B_u8F7D_u548C_u914D_u7F6E"><span class="toc-number">1.</span> <span class="toc-text">一、SteamCMD的下载和配置</span></a></li></ol>
+		</div>
+		
+		<p><strong>首先说明，此文章所述搭建过程仅适用于Steam正版L4D2，盗版开服需要自己下载服务器破解补丁。作者和朋友们都在Steam上玩，请恕本文章并不涉及</strong></p>
+<p>我和范峥以及一群朋友经常会聚在一起玩求生之路2，直接用本地建主的话ping会比较高，我们就在阿里云上搭了一个Left 4 Dead 2 Dedicated Server。借着今天我雪重装了下服务器系统的机会，我将L4D2服务器搭建的过程记录下来以供参考。</p>
+<p><strong>首先说明下服务器环境和配置</strong></p>
+<blockquote>
+<ul>
+<li>阿里云的1G内存，1核，1Mbps带宽的标准学生机</li>
+<li>Ubuntu 14.04 LTS x64</li>
+<li>L4D2并不需要很高配置，但实测我们这个配置如果是Windows去跑玩的时候会有时略有卡顿，Linux则不会，建议还是选择Linux。</li>
+</ul>
+</blockquote>
+<p><strong>下面开始说配置过程</strong></p>
+<h2 id="u4E00_u3001SteamCMD_u7684_u4E0B_u8F7D_u548C_u914D_u7F6E"><a href="#u4E00_u3001SteamCMD_u7684_u4E0B_u8F7D_u548C_u914D_u7F6E" class="headerlink" title="一、SteamCMD的下载和配置"></a>一、SteamCMD的下载和配置</h2><p>SteamCMD是Valve提供的Steam的命令行版本，用于在Linux搭建各个游戏的Dedicated Server。</p>
+<p>####1. 如果你和我一样是Ubuntu的64位版本，第一件事要做的是安装32位运行库：<br>Ubuntu/Debian 64-bit:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install lib32gcc1</span><br></pre></td></tr></table></figure></p>
+<p>如果你是32位RedHat系Linux，如CentOS 32bit:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install glibc libstdc++</span><br></pre></td></tr></table></figure></p>
+<p>如果是64位RedHat系Linux：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install glibc.i686 libstdc++.i686</span><br></pre></td></tr></table></figure></p>
+<p>#####另注意：使用SteamCMD和运行服务器时，Valve非常不推荐使用root用户，你可以使用<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m username</span><br><span class="line">su suername</span><br></pre></td></tr></table></figure></p>
+<p>#####来创建并切换用户。</p>
+<p>####2. 下载安装SteamCMD。如下面所示。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/steamcmd</span><br><span class="line"><span class="built_in">cd</span> ~/steamcmd</span><br><span class="line">wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz</span><br><span class="line">tar -zxvf steamcmd_linux.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>####3. 打开SteamCMD。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~/steamcmd</span><br><span class="line">./steamcmd.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
+<p>第一次运行SteamCMD时，SteamCMD会自动下载一些文件，和Steam一样，不是很大，稍等片刻即可。<br>下载完后命令行显示：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Steam Console Client (c) Valve Corporation</span><br><span class="line">-- <span class="built_in">type</span> <span class="string">'quit'</span> to <span class="built_in">exit</span> --</span><br><span class="line">Loading Steam API...OK.</span><br><span class="line"></span><br><span class="line">Steam&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里，你可以选择是否使用匿名登录，有些游戏的Server需要你有游戏才可以下载，有些匿名登录可以下，具体表格请参见:<a href="https://developer.valvesoftware.com/wiki/Dedicated_Servers_List" target="_blank" rel="external">https://developer.valvesoftware.com/wiki/Dedicated_Servers_List</a><br>在这里，因为L4D2服务器可以匿名登录下载，我们选择使用匿名登录<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Steam&gt;login anonymous</span><br><span class="line"></span><br><span class="line">Connecting anonymously to Steam Public..<span class="class">.Logged</span> <span class="keyword">in</span> OK</span><br><span class="line">Waiting <span class="keyword">for</span> license info..<span class="class">.OK</span></span><br><span class="line"></span><br><span class="line">Steam&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此时已经登录成功，我们可以使用force_install_dir指定下载目录.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Steam&gt;force_install_dir ~/l4d2</span><br></pre></td></tr></table></figure></p>
+<p>这时，就可以开始下载Left 4 Dead 2 Dedicated Server了，下载的命令语法是<br><figure class="highlight"><figcaption><span><app_id> [-beta <betaname>] [-betapassword <password>] [validate]</password></betaname></app_id></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```&#10;&#20854;&#20013;&#65292;app_id&#26159;&#35813;Dedicated Server&#22312;Steam&#25968;&#25454;&#24211;&#20013;&#30340;APPID&#65292;&#22312;https://developer.valvesoftware.com/wiki/Dedicated_Servers_List &#21487;&#20197;&#26597;&#35810;&#21040;&#65292;L4D2 Dedicated Server&#30340;APPID&#26159;222860&#65292;&#21518;&#38754;beta&#36873;&#39033;&#26159;&#26159;&#21542;&#21442;&#21152;&#35813;&#28216;&#25103;&#30340;&#26576;&#39033;&#27979;&#35797;&#65292;&#21644;&#26412;&#27425;L4D2&#25645;&#24314;&#26080;&#20851;&#65292;&#26368;&#21518;&#30340;validate&#26159;&#26159;&#21542;&#19979;&#36733;&#23436;&#25104;&#21518;&#39564;&#35777;&#19968;&#36941;&#25991;&#20214;&#65292;&#25512;&#33616;&#21152;&#19978;&#12290;&#10;&#25105;&#20204;&#20351;&#29992;&#22914;&#19979;&#21629;&#20196;&#65306;</span><br></pre></td></tr></table></figure></p>
+<p>Steam&gt;app_update 222860 validate<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">接下来就可以慢慢等服务器下载成功了。</span><br><span class="line"></span><br><span class="line">等到提示</span><br></pre></td></tr></table></figure></p>
+<p>Success! App ‘222860’ fully installed.<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">即说明已经下载安装成功。此时就可以键入quit退出steamcmd了。</span><br><span class="line"></span><br><span class="line">## 二、<span class="built_in">Left</span> <span class="number">4</span> Dead <span class="number">2</span> Dedicated <span class="built_in">Server</span>的配置</span><br><span class="line">L4D2是一款Source引擎的游戏，其Dedicated <span class="built_in">Server</span>配置也秉承了一系列SRCDS（Source Dedicated <span class="built_in">Server</span>）的特点，配置起来简单方便。</span><br><span class="line">简而言之，用/l4d2表示我们下载l4d2的目录(force_install_dir中设定的）我们仅仅需要在/l4d2/left4dead2/cfg/目录下新建一个<span class="built_in">server</span>.cfg文件将我们需要进行配置的选项赋值即可。具体可配置的选项如下：</span><br></pre></td></tr></table></figure></p>
+<p>hostname “servername”    //游戏服务器名<br>rcon_password “password” //远程管理密码<br>//sv_search_key yourkey  //搜索此服务器的关键词<br>//sv_region 255          //服务器地区，255表示全球<br>//sv_gametypes “coop,versus,survival,scavenge” //游戏模式<br>//map c5m1_waterfront    //游戏地图<br>//sv_voiceenable 1       //开启语音服务<br>//sv_lan 0                 //是否是局域网游戏<br>//sv_cheats “0”             //是否允许作弊</p>
+<p>//sv_steamgroup “01234”  //Steam组号<br>//sv_steamgroup_exclusive 1 //将服务器设为Steam组私有<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">具体选项请参阅Valve相关说明。在这里我们不需要过多配置，像游戏地图模式等我们可以在Left <span class="number">4</span> Dead <span class="number">2</span>游戏内去选择，以下是我们组服务器配置的server.cfg文件</span><br></pre></td></tr></table></figure></p>
+<p>hostname “YaCMap Linux @_@”<br>sv_steamgroup 10658701<br>sv_steamgroup_exclusive 1<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">可以看到，我们仅仅配置了服务器名和组服务器私有的选项，而这些就足够了。</span><br><span class="line"></span><br><span class="line">&gt;另外多说一句，和朋友一起玩可以先建立你们的Steam组，都加入后请在组管理页面获取组数字编号，如图所示。</span><br><span class="line">![steamgroup](<span class="string">http:</span><span class="comment">//xuchen.wang/img/steamgroup.png）</span></span><br><span class="line">将其放在sv_steamgroup后面加入server.cfg即可。</span><br><span class="line"></span><br><span class="line">在<span class="regexp">/l4d2/</span>left4dead2目录下，你可以发现host.txt和motd.txt，他们里面的内容分别是游戏进入时显示的服务器信息和今日消息两张图片，你可以对他们进行修改，改为你的页面的图片地址。</span><br><span class="line"></span><br><span class="line">最后，请建立一个run.sh文件，输入</span><br></pre></td></tr></table></figure></p>
+<p>./srcds_run -game left4dead2 +exec.cfg<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样运行L4D2虽然没有问题，但你必须保持SSH连接一直打开，万一不小心关闭了服务器就也没了，很不方便，我推荐使用后台去运行服务器，在命令前只需简单的加入一个nohup即可。</span><br></pre></td></tr></table></figure></p>
+<p>nohup ./srcds_run -game left4dead2 +exec.cfg<br>```<br>像这样后台运行，如果你想彻底关闭服务器，你需要ps -ef查看进程并kill掉srcds的pid。</p>
+<p>可以使用绝对路径并随便将这个run.sh文件放置在任何地方，以后直接启动run.sh，你便可以和朋友们开心的L4D2了！</p>
+<p>最后，向大家推荐下我和朋友们玩过的所有第三方战役，请参阅：<a href="http://yacmap.xyz/l4d2maps.html" target="_blank" rel="external">http://yacmap.xyz/l4d2maps.html</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/服务器/">服务器</a><a href="/tags/求生之路/">求生之路</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Game/">Game</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yachen4ever.github.io/2015/12/18/l4d2server/" data-title="Linux环境搭建Left 4 Dead 2/求生之路2专用服务器 | YaCHEN Factory" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/12/17/setuphexo/"  title="在Github上搭建Hexo静态博客记录">
+ <strong>NEXT:</strong><br/> 
+ <span>在Github上搭建Hexo静态博客记录
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E00_u3001SteamCMD_u7684_u4E0B_u8F7D_u548C_u914D_u7F6E"><span class="toc-number">1.</span> <span class="toc-text">一、SteamCMD的下载和配置</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Game/" title="Game">Game<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Study/" title="Study">Study<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/服务器/" title="服务器">服务器<sup>1</sup></a></li>
+		
+			<li><a href="/tags/求生之路/" title="求生之路">求生之路<sup>1</sup></a></li>
+		
+			<li><a href="/tags/静态博客/" title="静态博客">静态博客<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m YaCHEN <br/>
+			This is my blog, Fuck it.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yachen4ever.github.io" target="_blank" title="YaCHEN">YaCHEN</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"yachen"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+  </body>
+</html>
