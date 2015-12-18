@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-16T18:40:25.000Z" itemprop="datePublished">2015-12-17</time>
-    更新日期:<time datetime="2015-12-18T06:50:34.130Z" itemprop="dateModified">2015-12-18</time>
+    更新日期:<time datetime="2015-12-18T12:27:01.409Z" itemprop="dateModified">2015-12-18</time>
     
   </p>
 </header>
@@ -90,72 +90,44 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001_u51C6_u5907_u4E00_u4E9B_u5DE5_u5177"><span class="toc-number">1.</span> <span class="toc-text">一、准备一些工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E8C_u3001_u4F7F_u7528_u4F60_u7684Github_u8D26_u6237_u65B0_u5EFA_u4E00_u4E2ARepository"><span class="toc-number">2.</span> <span class="toc-text">二、使用你的Github账户新建一个Repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E09_u3001_u521B_u5EFA_u535A_u5BA2_u76EE_u5F55"><span class="toc-number">3.</span> <span class="toc-text">三、创建博客目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u56DB_u3001_u914D_u7F6E_config-yml"><span class="toc-number">4.</span> <span class="toc-text">四、配置_config.yml</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E94_u3001_u5B66_u4F1A_u4F7F_u7528"><span class="toc-number">5.</span> <span class="toc-text">五、学会使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u516D_u3001_u4E00_u4E9B_u95EE_u9898"><span class="toc-number">6.</span> <span class="toc-text">六、一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u6211_u60F3_u7ED1_u5B9A_u72EC_u7ACB_u57DF_u540D"><span class="toc-number">6.1.</span> <span class="toc-text">我想绑定独立域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u90E8_u7F72_u65F6_u63D0_u793A__uFF40event_type_error_*_uFF40"><span class="toc-number">6.2.</span> <span class="toc-text">部署时提示 ｀event type error *｀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6211_u60F3_u6362_u4E00_u4E2A_u4E3B_u9898"><span class="toc-number">6.3.</span> <span class="toc-text">我想换一个主题</span></a></li></ol></li></ol>
 		</div>
 		
 		<p>一直以来只有一个简陋的cnblogs上的博客，还基本都是高中时的东西。大学四年更新了3次，实在是惭愧，今晚和我雪说到这个，借此机会用Hexo在Github上搭个静态博客（然而我雪自己写了个静态化程序，膜之），准备好好记录下自己到底学了些什么。以下就是过程的记录和遇到的一些问题的解决办法了。</p>
+<h1 id="u4E00_u3001_u51C6_u5907_u4E00_u4E9B_u5DE5_u5177"><a href="#u4E00_u3001_u51C6_u5907_u4E00_u4E9B_u5DE5_u5177" class="headerlink" title="一、准备一些工具"></a>一、准备一些工具</h1><p>你需要以下软件：</p>
 <blockquote>
 <ul>
-<li>一、准备一些工具</li>
-</ul>
-</blockquote>
-<p>你需要以下软件：</p>
-<ol>
+<li><ol>
 <li>Git (<a href="http://git-scm.com/downloads" target="_blank" rel="external">http://git-scm.com/downloads</a>)</li>
+</ol>
+</li>
+<li><ol>
 <li>node.js (<a href="http://nodejs.org/download" target="_blank" rel="external">http://nodejs.org/download</a>)</li>
 </ol>
+</li>
+</ul>
+</blockquote>
 <p>下载好后两者都可一路回车法进行安装。Git需要配置SSH-Key，此过程使用过GitHub的都明白，此处不再赘述。完成后打开Git Bash，执行如下命令:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
 <p>这样你就安装好了hexo主程序。</p>
-<blockquote>
-<ul>
-<li>二、使用你的Github账户新建一个Repository</li>
-</ul>
-</blockquote>
-<p>请注意，新建Repo时请注意Repository name请使用username.github.io。username换成你的用户名。只有这种方式建立的Repo才可以使用Github Pages直接访问。</p>
-<blockquote>
-<ul>
-<li>三、创建博客目录</li>
-</ul>
-</blockquote>
-<p>在git bash中选择好博客存放目录，执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<h1 id="u4E8C_u3001_u4F7F_u7528_u4F60_u7684Github_u8D26_u6237_u65B0_u5EFA_u4E00_u4E2ARepository"><a href="#u4E8C_u3001_u4F7F_u7528_u4F60_u7684Github_u8D26_u6237_u65B0_u5EFA_u4E00_u4E2ARepository" class="headerlink" title="二、使用你的Github账户新建一个Repository"></a>二、使用你的Github账户新建一个Repository</h1><p>请注意，新建Repo时请注意Repository name请使用username.github.io。username换成你的用户名。只有这种方式建立的Repo才可以使用Github Pages直接访问。</p>
+<h1 id="u4E09_u3001_u521B_u5EFA_u535A_u5BA2_u76EE_u5F55"><a href="#u4E09_u3001_u521B_u5EFA_u535A_u5BA2_u76EE_u5F55" class="headerlink" title="三、创建博客目录"></a>三、创建博客目录</h1><p>在git bash中选择好博客存放目录，执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
 <p>hexo会自动在此文件夹生成建立博客需要的文件，接着执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br><span class="line">$ npm install hexo-server</span><br><span class="line">$ npm install hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
 <p>以上装好hexo-server（在hexo3.0版本中hexo-server从hexo中分离了出来）还有hexo用于git的部署工具。</p>
 <p>此时即可生成静态网页后输入hexo server测试服务器是否正常运行。git bash应该会显示：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo server</span><br><span class="line">[info] Hexo is running at http://<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">4000</span>/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure></p>
 <p>这里的0.0.0.0是默认配置ip，可以在./_config.yml中修改，不过默认的也没有问题，打开<a href="http://localhost:4000应该会看到一篇默认的文章。" target="_blank" rel="external">http://localhost:4000应该会看到一篇默认的文章。</a></p>
-<blockquote>
-<ul>
-<li>四、配置_config.yml</li>
-</ul>
-</blockquote>
-<p>hexo所有配置都在_config.yml文件中，在<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: YaCHEN Factory</span><br><span class="line">subtitle: </span><br><span class="line">description: </span><br><span class="line">author: YaCHEN</span><br><span class="line">language:</span><br><span class="line">timezone:</span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: http://www.xuchen.wang</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure></p>
+<h1 id="u56DB_u3001_u914D_u7F6E_config-yml"><a href="#u56DB_u3001_u914D_u7F6E_config-yml" class="headerlink" title="四、配置_config.yml"></a>四、配置_config.yml</h1><p>hexo所有配置都在_config.yml文件中，在<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: YaCHEN Factory</span><br><span class="line">subtitle: </span><br><span class="line">description: </span><br><span class="line">author: YaCHEN</span><br><span class="line">language:</span><br><span class="line">timezone:</span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: http://www.xuchen.wang</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure></p>
 <p>中，请将对应信息改为自己的。</p>
 <p>而在尾部<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yachen4ever/yachen4ever.github.io.git</span><br></pre></td></tr></table></figure></p>
 <p>增加一行repo: 你在github上对应repository的SSH地址，请注意必须使用SSH地址，HTTPS会导致错误。</p>
 <p>还有一个必须要注意的地方，<strong>冒号后面一定要有一个空格</strong>，否则会报错。</p>
 <p>此时即可查看<a href="http://yourname.github.io/是否提交成功。" target="_blank" rel="external">http://yourname.github.io/是否提交成功。</a></p>
-<blockquote>
-<ul>
-<li>五、学会使用</li>
-</ul>
-</blockquote>
-<p>每次部署博客，都可按以下三步来进行。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<h1 id="u4E94_u3001_u5B66_u4F1A_u4F7F_u7528"><a href="#u4E94_u3001_u5B66_u4F1A_u4F7F_u7528" class="headerlink" title="五、学会使用"></a>五、学会使用</h1><p>每次部署博客，都可按以下三步来进行。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
 <p>命令涵义就是字面意思，同时，后两条命令分别也可以简写为<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
 <p>而创建新博客使用<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
 <p>具体请参见:<a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">https://hexo.io/docs/writing.html</a><br>推荐使用 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">https://www.zybuluo.com/mdeditor</a> 如果你没有接触过Markdown</p>
-<blockquote>
-<ul>
-<li>六、一些问题</li>
-</ul>
-</blockquote>
-<ol>
-<li><p>如果你需要绑定独立域名，请参考：<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/" target="_blank" rel="external">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/</a><br>其中加入完后请将CNAME文件在./source中放置一份，这样下次hexo deploy时就不会使CNAME文件消失了。</p>
-</li>
-<li><p>部署提示 ｀event type error <em>*</em>｀<br>出现该问题是因为安装了git bash没有配置到环境变量path中，添加进去试试。</p>
-</li>
-<li><p>我想换一个主题。<br>这里是官方主题预览：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>选好像要的主题后在git bash里输入</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> 该Theme SSH地址或HTTPS地址 themes/主题名</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="u516D_u3001_u4E00_u4E9B_u95EE_u9898"><a href="#u516D_u3001_u4E00_u4E9B_u95EE_u9898" class="headerlink" title="六、一些问题"></a>六、一些问题</h1><h2 id="u6211_u60F3_u7ED1_u5B9A_u72EC_u7ACB_u57DF_u540D"><a href="#u6211_u60F3_u7ED1_u5B9A_u72EC_u7ACB_u57DF_u540D" class="headerlink" title="我想绑定独立域名"></a>我想绑定独立域名</h2><p>请参考 <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/" target="_blank" rel="external">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/</a><br>其中加入完后请将CNAME文件在./source中放置一份，这样下次hexo deploy时就不会使CNAME文件消失了。</p>
+<h2 id="u90E8_u7F72_u65F6_u63D0_u793A__uFF40event_type_error_*_uFF40"><a href="#u90E8_u7F72_u65F6_u63D0_u793A__uFF40event_type_error_*_uFF40" class="headerlink" title="部署时提示 ｀event type error *｀"></a>部署时提示 ｀event type error <em>*</em>｀</h2><p>出现该问题是因为安装了git bash没有配置到环境变量path中，添加进去试试。</p>
+<h2 id="u6211_u60F3_u6362_u4E00_u4E2A_u4E3B_u9898"><a href="#u6211_u60F3_u6362_u4E00_u4E2A_u4E3B_u9898" class="headerlink" title="我想换一个主题"></a>我想换一个主题</h2><p>这里是官方主题预览：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>选好像要的主题后在git bash里输入<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> 该Theme SSH地址或HTTPS地址 themes/主题名</span><br></pre></td></tr></table></figure></p>
 <p>并在./_config.yml中修改<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: 新主题名</span><br></pre></td></tr></table></figure></p>
 <p>重新部署即可。</p>
   
@@ -209,7 +181,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001_u51C6_u5907_u4E00_u4E9B_u5DE5_u5177"><span class="toc-number">1.</span> <span class="toc-text">一、准备一些工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E8C_u3001_u4F7F_u7528_u4F60_u7684Github_u8D26_u6237_u65B0_u5EFA_u4E00_u4E2ARepository"><span class="toc-number">2.</span> <span class="toc-text">二、使用你的Github账户新建一个Repository</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E09_u3001_u521B_u5EFA_u535A_u5BA2_u76EE_u5F55"><span class="toc-number">3.</span> <span class="toc-text">三、创建博客目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u56DB_u3001_u914D_u7F6E_config-yml"><span class="toc-number">4.</span> <span class="toc-text">四、配置_config.yml</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E94_u3001_u5B66_u4F1A_u4F7F_u7528"><span class="toc-number">5.</span> <span class="toc-text">五、学会使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u516D_u3001_u4E00_u4E9B_u95EE_u9898"><span class="toc-number">6.</span> <span class="toc-text">六、一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u6211_u60F3_u7ED1_u5B9A_u72EC_u7ACB_u57DF_u540D"><span class="toc-number">6.1.</span> <span class="toc-text">我想绑定独立域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u90E8_u7F72_u65F6_u63D0_u793A__uFF40event_type_error_*_uFF40"><span class="toc-number">6.2.</span> <span class="toc-text">部署时提示 ｀event type error *｀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6211_u60F3_u6362_u4E00_u4E2A_u4E3B_u9898"><span class="toc-number">6.3.</span> <span class="toc-text">我想换一个主题</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
