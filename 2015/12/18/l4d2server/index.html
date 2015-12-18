@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-18T06:52:24.000Z" itemprop="datePublished">2015-12-18</time>
-    更新日期:<time datetime="2015-12-18T09:51:30.284Z" itemprop="dateModified">2015-12-18</time>
+    更新日期:<time datetime="2015-12-18T15:59:49.238Z" itemprop="dateModified">2015-12-18</time>
     
   </p>
 </header>
@@ -127,8 +127,8 @@
 <p>另外多说一句，和朋友一起玩可以先建立你们的Steam组，都加入后请在组管理页面获取组数字编号，如图所示。<br><img src="http://xuchen.wang/img/steamgroup.png" alt="steamgroup"><br>将其放在sv_steamgroup后面加入server.cfg即可。</p>
 </blockquote>
 <p>在/l4d2/left4dead2目录下，你可以发现host.txt和motd.txt，他们里面的内容分别是游戏进入时显示的服务器信息和今日消息两张图片，你可以对他们进行修改，改为你的页面的图片地址。</p>
-<h3 id="u670D_u52A1_u5668_u8FD0_u884C"><a href="#u670D_u52A1_u5668_u8FD0_u884C" class="headerlink" title="服务器运行"></a>服务器运行</h3><p>最后，请建立一个run.sh文件，输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./srcds_run -game left4dead2 +<span class="built_in">exec</span> config.cfg</span><br></pre></td></tr></table></figure></p>
-<p>这样运行L4D2虽然没有问题，但你必须保持SSH连接一直打开，万一不小心关闭了服务器就也没了，很不方便，我推荐使用后台去运行服务器，在命令前只需简单的加入一个nohup即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./srcds_run -game left4dead2 +<span class="built_in">exec</span> config.cfg</span><br></pre></td></tr></table></figure></p>
+<h3 id="u670D_u52A1_u5668_u8FD0_u884C"><a href="#u670D_u52A1_u5668_u8FD0_u884C" class="headerlink" title="服务器运行"></a>服务器运行</h3><p>最后，请建立一个run.sh文件，输入<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./srcds_run -game left4dead2 +exec <span class="keyword">server</span>.cfg</span><br></pre></td></tr></table></figure></p>
+<p>这样运行L4D2虽然没有问题，但你必须保持SSH连接一直打开，万一不小心关闭了服务器就也没了，很不方便，我推荐使用后台去运行服务器，在命令前只需简单的加入一个nohup即可。<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./srcds_run -game left4dead2 +exec <span class="keyword">server</span>.cfg</span><br></pre></td></tr></table></figure></p>
 <p>像这样后台运行，如果你想彻底关闭服务器，你需要ps -ef查看进程并kill掉srcds的pid。</p>
 <p>可以使用绝对路径并随便将这个run.sh文件放置在任何地方，以后直接启动run.sh，你便可以和朋友们开心的L4D2了！</p>
 <h2 id="u611F_u8C22"><a href="#u611F_u8C22" class="headerlink" title="感谢"></a>感谢</h2><p>感谢以下参阅过的资料：<br><a href="https://developer.valvesoftware.com/wiki/SteamCMD" target="_blank" rel="external">https://developer.valvesoftware.com/wiki/SteamCMD</a><br><a href="http://forums.steampowered.com/forums/showthread.php?t=1381634" target="_blank" rel="external">http://forums.steampowered.com/forums/showthread.php?t=1381634</a></p>
