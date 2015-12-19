@@ -90,7 +90,7 @@ Screen的出现解决了这个问题。Screen是一款由GNU计划开发的用�
     </p>
   <p class="article-time">
     <time datetime="2015-12-19T04:48:50.000Z" itemprop="datePublished">2015-12-19</time>
-    更新日期:<time datetime="2015-12-19T07:10:58.080Z" itemprop="dateModified">2015-12-19</time>
+    更新日期:<time datetime="2015-12-19T07:47:21.146Z" itemprop="dateModified">2015-12-19</time>
     
   </p>
 </header>
@@ -120,7 +120,7 @@ Screen的出现解决了这个问题。Screen是一款由GNU计划开发的用�
 <h4 id="u4F7F_u7528-S_u53C2_u6570"><a href="#u4F7F_u7528-S_u53C2_u6570" class="headerlink" title="使用-S参数"></a>使用-S参数</h4><p>-S参数提供了一个screen名称标识，可以使用<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># screen -S screenname</span></span><br></pre></td></tr></table></figure></p>
 <p>来新建一个以screenname标识的screen，此时就好像清屏了一样看不出区别，但其实你已经在一个screen中工作了，输入exit，可以看到<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[screen <span class="keyword">is</span> terminating]</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="u4F7F_u7528-s_u53C2_u6570"><a href="#u4F7F_u7528-s_u53C2_u6570" class="headerlink" title="使用-s参数"></a>使用-s参数</h4><p>-s参数指定了建立新Screen时，所要执行的程序。默认是bash。-s可以省略，比如我们如果想在一个新Screen中运行vi，可以直接输入<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># screen vi</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="u67E5_u8BE2_u5E76_u6062_u590DScreen"><a href="#u67E5_u8BE2_u5E76_u6062_u590DScreen" class="headerlink" title="查询并恢复Screen"></a>查询并恢复Screen</h3><p>查询：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># screen ls</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="u67E5_u8BE2_u5E76_u6062_u590DScreen"><a href="#u67E5_u8BE2_u5E76_u6062_u590DScreen" class="headerlink" title="查询并恢复Screen"></a>查询并恢复Screen</h3><p>查询：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># screen -ls</span></span><br></pre></td></tr></table></figure></p>
 <p>恢复<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># screen -r <span class="title">&lt;数字标号或screen名称&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <h3 id="Screen_u4E0B_u7684_u64CD_u4F5C"><a href="#Screen_u4E0B_u7684_u64CD_u4F5C" class="headerlink" title="Screen下的操作"></a>Screen下的操作</h3><p>在一个Screen下，所有命令都以Ctrl+A开始，按下Ctrl+A后，你可以使用以下常用命令。</p>
 <blockquote>
@@ -131,7 +131,7 @@ Screen的出现解决了这个问题。Screen是一款由GNU计划开发的用�
 <li>Ctrl+A 0..9 –&gt; 切换到第0~9个screen</li>
 <li>Ctrl+A [Space] –&gt; 循环依次切换screen</li>
 <li>Ctrl+A Ctrl+A –&gt; 在两个最近使用的screen来回切换</li>
-<li>Ctrl+A d –&gt; (Detach)暂时离开当前scren，返回主bash，此时该Screen中的进程继续后台运行不受影响</li>
+<li>Ctrl+A d –&gt; (Detach)暂时离开当前screen，返回主bash，此时该Screen中的进程继续后台运行不受影响</li>
 <li>Ctrl+A w –&gt; 显示当前所有Screen列表</li>
 <li>Ctrl+A k –&gt; (kill)杀死当前screen并强行结束其中所有进程</li>
 <li>Ctrl+A x –&gt; 锁住当前Screen，恢复需要密码</li>
