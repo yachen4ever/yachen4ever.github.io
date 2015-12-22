@@ -1,0 +1,221 @@
+
+  
+    
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>YaCMap Studio 晨枫工作室</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/navbar-fixed-top.css" rel="stylesheet">
+	
+	<!-- Custom Font -->
+	<link href="./css/fontchange.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script type="text/javascript" src="maps.js"></script>
+<script>
+
+var page=1;//表示页数
+var perpage=20;//表示每页现实几条数据
+
+var len=data["list"].length;
+var totalPages = Math.ceil(len/perpage);
+
+window.onload=function() {
+	var pp = document.getElementById('pagescnt');
+//	alert(totalPages);
+	for (var i=1;i<=totalPages;i++) {
+		var pag = document.createElement('li');
+		pag.innerHTML='<a href=javascript:setPage('+i+')>'+i+'</a>';
+		pag.id='btnPage'+i;
+		pp.appendChild(pag);
+	}
+	var pag = document.createElement('li');
+	pag.innerHTML='<a href="javascript:setPageNext()" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>'
+	pag.id='btnNextPage';
+	pp.appendChild(pag);
+	setPage(1);
+
+}
+
+function setPage(Page) {
+	page=Page;
+//	alert(page);
+	
+	var father=document.getElementById('Lfather');
+	var child=document.getElementById('Lchild');
+	
+	var j=(page-1)*perpage;
+
+	father.removeChild(child);
+	
+	var newchild=document.createElement('p');
+	newchild.id="Lchild";
+	father.appendChild(newchild);
+    
+	for(var i=j;i<j+perpage;i++) {
+		
+		var name=document.createElement('p');
+		var cnname=document.createElement('p');
+		var score=document.createElement('p');
+		var des=document.createElement('p');
+		var workshop=document.createElement('p');
+		var d1=document.createElement('p');
+		var d2=document.createElement('p');
+		name.innerHTML="<b>"+data["list"][i]['name'] + '&nbsp;&nbsp;&nbsp;' + data["list"][i]['cnname']+"</b>";
+		score.innerHTML="评分：<b>"+data["list"][i]['score']+"</b>";
+		des.innerHTML="简评："+data["list"][i]['des'];
+		workshop.innerHTML="创意工坊链接："+data["list"][i]['workshop'];
+		d1.innerHTML="l4d2.cc链接："+data["list"][i]['d1'];
+		d2.innerHTML="GameMaps链接："+data["list"][i]['d2'];
+		newchild.appendChild(name);
+		newchild.appendChild(score);
+		newchild.appendChild(des);
+		newchild.appendChild(workshop);
+		newchild.appendChild(d1);
+		newchild.appendChild(d2);
+		 
+		if (i==len-1) {
+			 break;
+		}
+    }
+	
+	if (page==1) {
+//		alert("page==1");
+		var xx = document.getElementById('btnPrevPage');
+		xx.className = 'disabled';
+	}
+//	alert(page);
+	if (page==totalPages) {
+//		alert("page==4");
+		var xx = document.getElementById('btnNextPage');
+		xx.className = 'disabled';
+	}
+	
+	for (var i=1;i<=totalPages;i++) {
+		if (page==i) {
+			var xx = document.getElementById('btnPage'+i);
+			xx.className = 'active';
+			for (var j=1;j<=totalPages;j++) {
+				if (i!=j) {
+					var yy = document.getElementById('btnPage'+j);
+					yy.className = '';
+				}
+			}
+		}
+	}
+
+}
+
+function setPagePrevious() {
+	setPage(page-1);
+}
+
+function setPageNext() {
+	setPage(page+1);
+}
+</script>
+
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">YaCMap Studio 晨枫工作室</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Left 4 Dead 2<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="l4d2.html">Dedicated Server</a></li>
+                <li><a href="l4d2maps.html">Fantasic Maps Sharing</a></li>
+	      	  </ul>
+            </li>
+			<li><a href="maplestory.html">MapleStory</a></li>
+            <li><a href="about.html">About Us</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+<p>这里包含了我和朋友们一起玩过的所有第三方L4D2地图</p>
+<p>每张地图除了创意工坊链接外我们都给出了l4d2.cc（国内）和gamemaps（国外）的下载地址，而且我们也给出了一个玩后的初略评分，仅代表个人意见供大家参考。</p>
+<p>创意工坊也做了合集，可以直接订阅所有，<a href="http://steamcommunity.com/sharedfiles/filedetails/?id=549542901" target="_blank" rel="external">链接在此</a></p>
+<p>Notice 提示：<br>
+</p><p>1.如果地图中出现了纹理缺失，是因为Valve在Cold Stream DLC更新时使用部分新版本特有的材质替换了原有材质，导了致许多非官方地图会出现紫色方块或模型ERROR错误。可以使用此补丁：http://www.gamemaps.com/details/8719
+</p><p>2.很多地图名字中都有的2意思其实是该地图是从l4d1的地图移植过来的，并不是有1和2两张地图
+<br>
+<hr>
+<br>
+<div id="Lfather">
+<div id="Lchild">
+</div>
+</div>
+
+<nav align="center">
+  <ul class="pagination" id="pagescnt">
+    <li id="btnPrevPage">
+      <a href="javascript:setPagePrevious()" aria-label="Previous" target="_blank" rel="external">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+      </p></div>
+
+    </div> <!-- /container -->
+	
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+
+  
