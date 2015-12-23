@@ -15,7 +15,7 @@
     <title>YaCMap Studio 晨枫工作室</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="./css/navbar-fixed-top.css" rel="stylesheet">
@@ -51,7 +51,7 @@ window.onload=function() {
 		pp.appendChild(pag);
 	}
 	var pag = document.createElement('li');
-	pag.innerHTML='<a href="javascript:setPageNext()" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>'
+	pag.innerHTML='<a href="javascript:setPageNext()" aria-label="Next" id="aNextPage"><span aria-hidden="true">&raquo;</span></a>'
 	pag.id='btnNextPage';
 	pp.appendChild(pag);
 	setPage(1);
@@ -82,12 +82,27 @@ function setPage(Page) {
 		var workshop=document.createElement('p');
 		var d1=document.createElement('p');
 		var d2=document.createElement('p');
-		name.innerHTML="<b>"+data["list"][i]['name'] + '&nbsp;&nbsp;&nbsp;' + data["list"][i]['cnname']+"</b>";
-		score.innerHTML="评分：<b>"+data["list"][i]['score']+"</b>";
-		des.innerHTML="简评："+data["list"][i]['des'];
-		workshop.innerHTML="创意工坊链接："+data["list"][i]['workshop'];
-		d1.innerHTML="l4d2.cc链接："+data["list"][i]['d1'];
-		d2.innerHTML="GameMaps链接："+data["list"][i]['d2'];
+		name.innerHTML="<h3><b>"+data["list"][i]['name'] + '&nbsp;&nbsp;&nbsp;' + data["list"][i]['cnname']+"</b></h3>";
+		score.innerHTML="<b>评分："+data["list"][i]['score']+"</b>";
+		des.innerHTML="<b>简评：</b>"+data["list"][i]['des'];
+		if (data["list"][i]['workshop']=="无") {
+			workshop.innerHTML="<b>创意工坊链接：</b>"+data["list"][i]['workshop'];
+		}
+		else {
+			workshop.innerHTML="<b>创意工坊链接：</b><a href='"+data["list"][i]['workshop']+"' target=_blank>"+data["list"][i]['workshop']+"</a>";
+		}
+		if (data["list"][i]['d1']=="无") {
+			d1.innerHTML="<b>l4d2.cc链接：</b>"+data["list"][i]['d1'];
+		}
+		else {
+			d1.innerHTML="<b>l4d2.cc链接：</b><a href='"+data["list"][i]['d1']+"' target=_blank>"+data["list"][i]['d1']+"</a>";
+		}
+		if (data["list"][i]['d2']=="无") {
+			d2.innerHTML="<b>GameMaps链接：</b>"+data["list"][i]['d2'];
+		}
+		else {
+			d2.innerHTML="<b>GameMaps链接：</b><a href='"+data["list"][i]['d2']+"' target=_blank>"+data["list"][i]['d2']+"</a>";
+		}
 		newchild.appendChild(name);
 		newchild.appendChild(score);
 		newchild.appendChild(des);
@@ -104,12 +119,33 @@ function setPage(Page) {
 //		alert("page==1");
 		var xx = document.getElementById('btnPrevPage');
 		xx.className = 'disabled';
+		var axx = document.getElementById('aPrevPage');
+		axx.setAttribute("href","#");
+		var yy = document.getElementById('btnNextPage');
+		yy.className = '';
+		var ayy = document.getElementById('aNextPage');
+		ayy.setAttribute("href","javascript:setPageNext()");
 	}
-//	alert(page);
-	if (page==totalPages) {
+	else if (page==totalPages) {
 //		alert("page==4");
-		var xx = document.getElementById('btnNextPage');
-		xx.className = 'disabled';
+		var xx = document.getElementById('btnPrevPage');
+		xx.className = '';
+		var axx = document.getElementById('aPrevPage');
+		axx.setAttribute("href","javascript:setPagePrevious()");
+		var yy = document.getElementById('btnNextPage');
+		yy.className = 'disabled';
+		var ayy = document.getElementById('aNextPage');
+		ayy.setAttribute("href","#");
+	}
+	else {
+		var xx = document.getElementById('btnPrevPage');
+		xx.className = '';
+		var axx = document.getElementById('aPrevPage');
+		axx.setAttribute("href","javascript:setPagePrevious()");
+		var yy = document.getElementById('btnNextPage');
+		yy.className = '';
+		var ayy = document.getElementById('aNextPage');
+		ayy.setAttribute("href","javascript:setPageNext()");
 	}
 	
 	for (var i=1;i<=totalPages;i++) {
@@ -192,7 +228,7 @@ function setPageNext() {
 <nav align="center">
   <ul class="pagination" id="pagescnt">
     <li id="btnPrevPage">
-      <a href="javascript:setPagePrevious()" aria-label="Previous" target="_blank" rel="external">
+      <a href="javascript:setPagePrevious()" aria-label="Previous" id="aPrevPage" target="_blank" rel="external">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
