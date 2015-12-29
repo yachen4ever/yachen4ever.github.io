@@ -89,7 +89,7 @@
     <h1 itemprop="name">让PHP输出Json时正常显示中文</h1>
     
      
-      <p itemprop="description" >在使用PHP读取数据库生成Json文件的时候，我遇到了这样一个问题：中文部分全部被PHP的json_encode函数替换为了\u+utf8编码的形式，我们虽然可以在前端处理Json时再去转换，但有点不负责任的感觉。这里我参考了下网上给出的方法，总结记录了下来。</p>
+      <p itemprop="description" >在使用PHP读取数据库生成Json文件的时候，我遇到了这样一个问题：中文部分全部被PHP的json_encode函数替换为了\u+utf8编码的形式，在一般情况下，如果我们不会特意去使用其他不支持直接解码\u+utf8的软件读取Json，并不需要对其进行操作。这里我参考总结了下PHP为什么要这么做和一些让你在Json中看到能显示ASCII可显示字符之外的字符方法，记录了下来。</p>
       
     
     <time datetime="2015-12-21T12:24:42.000Z" itemprop="datePublished">2015-12-21</time>
