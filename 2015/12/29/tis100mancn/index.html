@@ -1,0 +1,448 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>TIS-100用户手册中文版 | YaCHEN Factory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="YaCHEN">
+    
+    <meta name="description" itemprop="description" content="最近在Steam上购买了TIS-100编程游戏，该游戏是一款使用汇编语言解决问题的高智商游戏。并附有一份14页的说明文档。我对该说明文档进行了完整翻译。">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="YaCHEN Factory" title="YaCHEN Factory"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="YaCHEN Factory">YaCHEN Factory</a></h1>
+				<h2 class="blog-motto">A CS Student&#39;s Individual Blog Site</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/friends">友链</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yachen4ever.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/29/tis100mancn/" title="TIS-100用户手册中文版" itemprop="url">TIS-100用户手册中文版</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yachen4ever.github.io" title="YaCHEN">YaCHEN</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-29T15:58:31.000Z" itemprop="datePublished">2015-12-29</time>
+    更新日期:<time datetime="2015-12-29T17:44:40.511Z" itemprop="dateModified">2015-12-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EFC_u8FF0"><span class="toc-number">2.</span> <span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7CFB_u7EDF_u67B6_u6784_u548C_u7EC4_u6210"><span class="toc-number">3.</span> <span class="toc-text">系统架构和组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8282_u70B9_u7C7B_u578BT20_-__u9884_u7559_u7C7B_u578B"><span class="toc-number">4.</span> <span class="toc-text">节点类型T20 - 预留类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8282_u70B9_u7C7B_u578BT21_-__u57FA_u672C_u6267_u884C_u8282_u70B9"><span class="toc-number">5.</span> <span class="toc-text">节点类型T21 - 基本执行节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u67B6_u6784"><span class="toc-number">5.1.</span> <span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ACC"><span class="toc-number">5.1.1.</span> <span class="toc-text">ACC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BAK"><span class="toc-number">5.1.2.</span> <span class="toc-text">BAK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NIL"><span class="toc-number">5.1.3.</span> <span class="toc-text">NIL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LEFT_2CRIGHT_2CUP_2CDOWN"><span class="toc-number">5.1.4.</span> <span class="toc-text">LEFT,RIGHT,UP,DOWN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ANY"><span class="toc-number">5.1.5.</span> <span class="toc-text">ANY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LAST"><span class="toc-number">5.1.6.</span> <span class="toc-text">LAST</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6307_u4EE4_u96C6"><span class="toc-number">5.2.</span> <span class="toc-text">指令集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u6CE8_u91CA"><span class="toc-number">5.2.1.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u6807_u7B7E"><span class="toc-number">5.2.2.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NOP"><span class="toc-number">5.2.3.</span> <span class="toc-text">NOP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MOV"><span class="toc-number">5.2.4.</span> <span class="toc-text">MOV</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>最近在Steam上购买了TIS-100编程游戏，该游戏是一款使用汇编语言解决问题的高智商游戏。并附有一份14页的说明文档<br>。我对该说明文档进行了完整翻译。<br>该文档英文原版pdf可以在这里下载：<a href="http://xuchen.wang/down/TIS-100ReferenceManual.pdf" target="_blank" rel="external">http://xuchen.wang/down/TIS-100ReferenceManual.pdf</a></p>
+<h2 id="u7EFC_u8FF0"><a href="#u7EFC_u8FF0" class="headerlink" title="综述"></a>综述</h2><p>栅格智能系统（Tessellated Intelligence System，以下简称TIS）是由不规则互相连接且不均匀分布的节点组成的大规模并行计算机架构。TIS是为需求复杂数据流处理的应用而设计的。常见适用应用有：自动化金融交易、批量数据收集和大众行为分析。</p>
+<blockquote>
+<ul>
+<li>注：本手册适用以这种形式出现的注释来指出需要特别留心的地方，并且提供更多关于主题的相关文档以备读者查询。</li>
+</ul>
+</blockquote>
+<h2 id="u7CFB_u7EDF_u67B6_u6784_u548C_u7EC4_u6210"><a href="#u7CFB_u7EDF_u67B6_u6784_u548C_u7EC4_u6210" class="headerlink" title="系统架构和组成"></a>系统架构和组成</h2><p>TIS由连接在同一总线上的大量独立节点构成。（在每种特定设备上的精确节点分布统计请参阅模型详情手册。）节点类型可大体分为处理节点和存储节点两大类，并在每大类中可精确细分。</p>
+<p>通常，节点通过端口与最多4个相邻节点建立连接。端口允许节点间的轻量级信息传递。在端口上的通信通过协调处于连接上的两个节点中任一节点发起读命令或写命令，并在另一方发出回应前阻塞通讯实现。</p>
+<blockquote>
+<ul>
+<li><p>注：如果两个连接中的节点同时向对方发起了相同的通信指令（读或写），这两个节点会陷入死锁状态并引发一个硬件错误。请参考一遍独立的文档《栅格智能系统：节点通信模式》来获取如何高效安全的使用端口的细节。</p>
+</li>
+<li><p>注：如果一个节点向另一个节点发起了一个通讯指令，却永远不会得到对应节点的应答，该节点会陷入死锁状态并并引发一个硬件错误。（但本规则也有例外，详情请参考具体节点类型的说明文档。）请参考一遍独立的文档《栅格智能系统最佳实践：节点通信模式》来获取如何高效安全的使用端口的细节。</p>
+</li>
+<li><p>注：这篇文档没有详细阐明节点通信和相关指令的时序和吞吐量，它们会根据模型和硬件版本不同而变化。在特定设备表现的详细数据请参考具体模型的说明文档。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="u8282_u70B9_u7C7B_u578BT20_-__u9884_u7559_u7C7B_u578B"><a href="#u8282_u70B9_u7C7B_u578BT20_-__u9884_u7559_u7C7B_u578B" class="headerlink" title="节点类型T20 - 预留类型"></a>节点类型T20 - 预留类型</h2><blockquote>
+<ul>
+<li>这种节点类型标识符被用来限定TIS的特定模型，不在本文档叙述范围内。T20类型的节点文档仅会在支援这种节点类型的系统中进行描述。根据联邦法律，未尽授权的描述此种节点的说明文档拷贝将被反馈至国家安全局。</li>
+</ul>
+</blockquote>
+<h2 id="u8282_u70B9_u7C7B_u578BT21_-__u57FA_u672C_u6267_u884C_u8282_u70B9"><a href="#u8282_u70B9_u7C7B_u578BT21_-__u57FA_u672C_u6267_u884C_u8282_u70B9" class="headerlink" title="节点类型T21 - 基本执行节点"></a>节点类型T21 - 基本执行节点</h2><h3 id="u67B6_u6784"><a href="#u67B6_u6784" class="headerlink" title="架构"></a>架构</h3><p>基本执行节点负责整合TIS的行为特性。处理过程可以在基本执行节点内进行，也可以被传递至专用处理和存储节点中。<br>基本执行节点执行以基本执行节点指令集编写的程序。一个基本执行节点程序指明需要计算和通讯的操作。程序执行过程会从第一条指令开始逐条执行。<strong>当执行完程序的最后一条指令后，会自动返回第一条指令继续执行。</strong>这种行为特性使得基本执行节点在需要编写连续循环的程序时最为适用。<br>与TIS所有节点相同，基本执行节点拥有通讯端口。除此之外，基本执行节点包含了用于程序执行过程的一系列寄存器。基本执行节点没有额外的存储器。如果需要额外的存储单元，这个节点需要协调另一基本执行节点或者存储节点用以存储。<br>所有寄存器存储-999～999（包含边界）之间的整数。寄存器值的表示是基于定义实现的，编写基于基本执行节点的应用程序并不需要理解这种表示法。</p>
+<h4 id="ACC"><a href="#ACC" class="headerlink" title="ACC"></a>ACC</h4><ul>
+<li>类型：内部</li>
+<li>描述：ACC是基本执行节点的基本存储寄存器。ACC被用作隐式源或许多指令的目标操作数，如算术指令和条件指令。</li>
+</ul>
+<h4 id="BAK"><a href="#BAK" class="headerlink" title="BAK"></a>BAK</h4><ul>
+<li>类型：内部（不可寻址）</li>
+<li>描述：BAK是ACC中值的临时存储器。它仅可通过SAV或SWP访问，<strong>不能直接读写</strong>。</li>
+</ul>
+<h4 id="NIL"><a href="#NIL" class="headerlink" title="NIL"></a>NIL</h4><ul>
+<li>类型：内部（特殊）</li>
+<li>描述：从NIL中读会产生0值。向NIL中写不会产生任何效果。如果你想舍弃一条指令的结果，可以使用NIL作为目标操作数。</li>
+</ul>
+<h4 id="LEFT_2CRIGHT_2CUP_2CDOWN"><a href="#LEFT_2CRIGHT_2CUP_2CDOWN" class="headerlink" title="LEFT,RIGHT,UP,DOWN"></a>LEFT,RIGHT,UP,DOWN</h4><ul>
+<li>类型：端口</li>
+<li>描述：四个通信寄存器UP,DOWN,LEFT和RIGHT协调了所有基本执行节点用来与其拓扑相邻节点通信的4个端口。硬件内一些端口会断开连接并当接收到读写指令时会无限期的阻塞。请参考节点互联图表去查看哪些端口可用。</li>
+</ul>
+<h4 id="ANY"><a href="#ANY" class="headerlink" title="ANY"></a>ANY</h4><ul>
+<li>类型：端口（伪端口）</li>
+<li>描述：当一条指令从ANY端口发出时，指令会首先读取在任一端口上可用的第一个值。当一条指令发往ANY端口时，指令结果会被发送至从该节点任一端口试图读取的第一个节点。</li>
+</ul>
+<h4 id="LAST"><a href="#LAST" class="headerlink" title="LAST"></a>LAST</h4><ul>
+<li>类型：端口（伪端口）</li>
+<li>描述：LAST表示上一个使用ANY伪端口读写的实际端口。它相对应的明确了一个端口。在成功从ANY端口读或向ANY端口写使得LAST端口被成功设置之前，从LAST端口读或向LAST端口写会导致一个未定义的行为。请参考一遍独立的文档《栅格智能系统最佳实践：节点通信模式》来获取示范LAST端口用法的样例代码。</li>
+</ul>
+<h3 id="u6307_u4EE4_u96C6"><a href="#u6307_u4EE4_u96C6" class="headerlink" title="指令集"></a>指令集</h3><p>\<src\>和\<dst\>指令参数可以具体指定为一个端口或内部寄存器。在一个端口连接到相关节点完成读写通信操作前，任何对此端口的使用会被阻断。另外，<src>参数可能是-999～999（包含边界）之间的字面值整数。</src></dst\></src\></p>
+<p>BAK不能作为一个\<src\>或\<dst\>操作数。BAK的值仅可以通过特殊指令SAV和SWP访问。</dst\></src\></p>
+<p>用于跳转指定目标的\<label\>参数可以由任意字符构成。</label\></p>
+<h4 id="u6CE8_u91CA"><a href="#u6CE8_u91CA" class="headerlink" title="注释"></a>注释</h4><ul>
+<li>语法：# 注释文本</li>
+<li>描述：在一行中，注释符(#)后出现所有文本都会被忽略。<blockquote>
+<ul>
+<li>注：如果有在双注释符(##)后出现的文本，它将被当作程序的标题，并会显示在调试器中便于浏览程序。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="u6807_u7B7E"><a href="#u6807_u7B7E" class="headerlink" title="标签"></a>标签</h4><ul>
+<li>语法：\<label\>:</label\></li>
+<li>描述：标签被用来辨识跳转指令的目标地。当一个标签被用来作为跳转目标时，标签后的指令将会接着被执行。</li>
+<li>示例：<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">LOOP:</span>            <span class="preprocessor"># 这个标签独自占据一行</span></span><br><span class="line"><span class="label">L:</span> <span class="keyword">MOV</span> <span class="number">8</span>, ACC    <span class="preprocessor"># 这个标签和一条指令共用一行</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="NOP"><a href="#NOP" class="headerlink" title="NOP"></a>NOP</h4><ul>
+<li>语法：NOP</li>
+<li>等价语法：ADD NIL</li>
+<li>描述：NOP是一条伪指令。使用NOP对节点的内部状态和通讯端口都没有任何作用。NOP会被自动转换成指令ADD NIL。</li>
+</ul>
+<h4 id="MOV"><a href="#MOV" class="headerlink" title="MOV"></a>MOV</h4><ul>
+<li>语法：MOV \<src\>,\<dst\></dst\></src\></li>
+<li>描述：<src>将会被读取，返回值会被写入\<dst\>。</dst\></src></li>
+<li><p>示例：</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">   MOV 8, ACC       <span class="comment"># 常值8被写入ACC寄存器</span></span><br><span class="line">   MOV LEFT, RIGHT  <span class="comment"># LEFT中的值被读出然后写入RIGHT</span></span><br><span class="line">   MOV UP, NIL      <span class="comment"># UP中的值被读出然后被舍弃</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### SWP</span></span><br><span class="line"><span class="keyword">*</span> 语法：SWP</span><br><span class="line"><span class="keyword">*</span> 描述：交换ACC和BAK中的值</span><br><span class="line"></span><br><span class="line"><span class="comment">#### SAV</span></span><br><span class="line"><span class="keyword">*</span> 语法：SAV</span><br><span class="line"><span class="keyword">*</span> 描述：将ACC中值写入BAK</span><br><span class="line"></span><br><span class="line"><span class="comment">#### ADD</span></span><br><span class="line"><span class="keyword">*</span> 语法：ADD \<span class="variable">&lt;SRC\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：\<span class="variable">&lt;SRC\&gt;</span>中的值与ACC相加，结果重写写入ACC</span><br><span class="line"><span class="keyword">*</span> 示例：</span><br></pre></td></tr></table></figure>
+<p> ADD 16           # 常值16与ACC相加，结果重写写入ACC<br> ADD LEFT         # LEFT中的值被读取并与ACC相加，结果重写写入ACC</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#### SUB</span></span><br><span class="line"><span class="keyword">*</span> 语法：SUB \<span class="variable">&lt;SRC\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：ACC减去\<span class="variable">&lt;SRC\&gt;</span>中的值，结果重写写入ACC</span><br><span class="line"><span class="keyword">*</span> 示例：</span><br></pre></td></tr></table></figure>
+<p> ADD 16           # ACC减去常值16，结果重写写入ACC<br> ADD LEFT         # ACC减去LEFT中的值，结果重写写入ACC</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#### NEG</span></span><br><span class="line"><span class="keyword">*</span> 语法：NEG</span><br><span class="line"><span class="keyword">*</span> 描述：对ACC取算数相反数并存入ACC，0值保持不变。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### JMP</span></span><br><span class="line"><span class="keyword">*</span> 语法：JMP \<span class="variable">&lt;LABEL\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：无条件跳转指令。标签\<span class="variable">&lt;LABEL\&gt;</span>后的指令会紧接着被执行。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### JEZ</span></span><br><span class="line"><span class="keyword">*</span> 语法：JEZ \<span class="variable">&lt;LABEL\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：条件跳转指令。如果ACC为0，标签\<span class="variable">&lt;LABEL\&gt;</span>后的指令会紧接着被执行。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### JNZ</span></span><br><span class="line"><span class="keyword">*</span> 语法：JNZ \<span class="variable">&lt;LABEL\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：条件跳转指令。如果ACC不为0，标签\<span class="variable">&lt;LABEL\&gt;</span>后的指令会紧接着被执行。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### JGZ</span></span><br><span class="line"><span class="keyword">*</span> 语法：JGZ \<span class="variable">&lt;LABEL\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：条件跳转指令。如果ACC大于0，标签\<span class="variable">&lt;LABEL\&gt;</span>后的指令会紧接着被执行。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### JLZ</span></span><br><span class="line"><span class="keyword">*</span> 语法：JLZ \<span class="variable">&lt;LABEL\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：条件跳转指令。如果ACC小于0，标签\<span class="variable">&lt;LABEL\&gt;</span>后的指令会紧接着被执行。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### JRO</span></span><br><span class="line"><span class="keyword">*</span> 语法：JRO \<span class="variable">&lt;SRC\&gt;</span></span><br><span class="line"><span class="keyword">*</span> 描述：无条件跳转指令。会跳转到\<span class="variable">&lt;SRC\&gt;</span>指定的偏移量处执行。</span><br><span class="line"><span class="keyword">*</span> 示例：</span><br></pre></td></tr></table></figure>
+<p> JRO 0           # 重复执行本行语句，可以用来使得程序中断执行<br> JRO -1          # 跳转到上一行语句执行<br> JRO 2           # 下一行语句将被跳过，直接执行下下行语句。<br> JRO ACC         # 跳转到偏移量为ACC的行执行。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">### 示例程序</span></span><br><span class="line"></span><br><span class="line">以下示例程序从LEFT端口读取数据，将其翻倍后写入<span class="constant">RIGHT</span>端口。由于基本执行节点的自动循环特性，该程序会完成最后的操作跳转至第一条指令继续执行。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>MOV LEFT, ACC     # 读取LEFT端口中的数据保存至ACC寄存器<br>ADD ACC           # 将ACC值加至自身<br>MOV ACC, RIGHT    # 将ACC值写入RIGHT端口<br><figure class="highlight ruleslanguage"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">以下示例程序从UP端口读取一个值序列，将其中的正值写入<span class="keyword">RIGHT</span>端口，负值写入<span class="keyword">LEFT</span>端口，<span class="number">0</span>值丢弃。</span><br></pre></td></tr></table></figure></p>
+<p>START:<br>    MOV UP, ACC     # 读取UP端口中的数据保存至ACC寄存器<br>    JGZ POSITIVE    # 如果ACC值&gt;0，跳转至POSITIVE处继续执行<br>    JLZ NEGATIVE    # 如果ACC值<0，跳转至negative处继续执行 jmp="" start="" #="" 此时如果还没跳转，说明acc值为0，直接跳转至start读取下一个数据="" positive:="" mov="" acc,="" right="" 将acc值写入right端口="" 跳转至start读取下一个数据="" negative:="" left="" 将acc值写入left端口="" <figure="" class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## 节点类型T30 - 栈存储节点</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 架构</span></span><br><span class="line">栈存储节点基于一个简单的栈通信协议，支持大数的读写操作。（请参考具体模型手册来获取特定设备上的栈存储节点的容量。）</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 通信协议</span></span><br><span class="line">栈存储节点上的所有交互通过端口完成。向栈存储节点写入数据会将数据保存至栈顶。如果一个栈已满，写入操作会被阻断直到空间可用。从栈存储节点读取数据会移除栈顶数据并将其作为返回值返回。如果一个栈为空，读取操作会被阻断直到一个值可用。</span><br><span class="line"></span><br><span class="line">栈存储节点通常会连接很多其他节点，并可被其他节点所使用。同时对同一节点进行读和写操作会以不确定的顺序完成，但任一通讯都会按照描述的通信协议进行。要获取更多关于高效并可预测地使用多个存储节点，请参考一遍独立的文档《栅格智能系统最佳实践：节点通信模式》。</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">## 节点类型T31 - 随机存取存储器节点	</span></span><br><span class="line"></span><br><span class="line">&gt;* 注：随机存取存储器节点在标准TIS设备中尚不可用。感兴趣的用户可以使用仿真器和硬件原型。具体特性和行为表现尚未定型，所以本文档并不讨论。</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">## 内置交互调试器</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 键盘快捷键说明</span></span><br><span class="line"></span><br><span class="line">内置交互调试器提供了一下键盘快捷键：</span><br><span class="line">Ctrl-Z：撤销</span><br><span class="line">Ctrl-Y：恢复</span><br><span class="line">Ctrl-X：剪切</span><br><span class="line">Ctrl-C：复制</span><br><span class="line">Ctrl-V：粘贴</span><br><span class="line">Ctrl-方向键：定位至相邻执行节点</span><br><span class="line">F1：查看指令快捷帮助</span><br><span class="line">F2：查看防篡改证书状态</span><br><span class="line">F5：运行当前程序</span><br><span class="line">F6：单步执行或暂停当前程序</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 断点</span></span><br><span class="line"></span><br><span class="line">要设置一个断点，只需在行首放置一个感叹号(!)。如果在某行设置了一个断点，程序会在执行这行之前暂停，这是你可以免于逐行单步调试而轻松的调试代码。</span><br></pre></td></tr></table></0，跳转至negative处继续执行></p>
+<p>MOV LEFT, ACC<br>!ADD ACC           # 程序会在执行此行前暂停<br>MOV ACC, DOWN<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">## 可视化模块</span></span><br><span class="line"><span class="preprocessor">### 可视化模块用途</span></span><br><span class="line">TIS-<span class="number">100</span>包含了一个可视化模块，使得程序以编程方式生成并显示图像。这个模块内容可以通过发送命令序列修改，包含了一个起始的X坐标、起始的Y坐标、一个或多个色彩值和一个表示结束的负值（通常为-<span class="number">1</span>）。坐标系起始于(<span class="number">0</span>,<span class="number">0</span>)，显示在可视区域的左上方。</span><br><span class="line">可视化模块支持以下颜色：</span><br><span class="line"><span class="number">0</span>：黑色</span><br><span class="line"><span class="number">1</span>：深灰色</span><br><span class="line"><span class="number">2</span>：浅灰色</span><br><span class="line"><span class="number">3</span>：白色</span><br><span class="line"><span class="number">4</span>：红色</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 可视化模块分辨率</span></span><br><span class="line">标准TIS-<span class="number">100</span>可视化模块为宽<span class="number">30</span>字符，高<span class="number">18</span>字符。</span><br><span class="line">“图像控制台沙盒”包含了一个更大的可视化模块，宽<span class="number">36</span>字符，高<span class="number">22</span>字符。</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">### 指令序列实例</span></span><br></pre></td></tr></table></figure></p>
+<p>0,0,3,-1          # 在模块显示区左上角画一个白色像素点<br>0,0,4,4,4,4,4,-1  # 在模块显示区左上角画一条红色水平线<br>```</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/TIS-100/">TIS-100</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Game/">Game</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yachen4ever.github.io/2015/12/29/tis100mancn/" data-title="TIS-100用户手册中文版 | YaCHEN Factory" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/12/21/cncharprobinphp2json/"  title="让PHP输出Json时正常显示中文">
+ <strong>NEXT:</strong><br/> 
+ <span>让PHP输出Json时正常显示中文
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EFC_u8FF0"><span class="toc-number">2.</span> <span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7CFB_u7EDF_u67B6_u6784_u548C_u7EC4_u6210"><span class="toc-number">3.</span> <span class="toc-text">系统架构和组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8282_u70B9_u7C7B_u578BT20_-__u9884_u7559_u7C7B_u578B"><span class="toc-number">4.</span> <span class="toc-text">节点类型T20 - 预留类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u8282_u70B9_u7C7B_u578BT21_-__u57FA_u672C_u6267_u884C_u8282_u70B9"><span class="toc-number">5.</span> <span class="toc-text">节点类型T21 - 基本执行节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u67B6_u6784"><span class="toc-number">5.1.</span> <span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ACC"><span class="toc-number">5.1.1.</span> <span class="toc-text">ACC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BAK"><span class="toc-number">5.1.2.</span> <span class="toc-text">BAK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NIL"><span class="toc-number">5.1.3.</span> <span class="toc-text">NIL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LEFT_2CRIGHT_2CUP_2CDOWN"><span class="toc-number">5.1.4.</span> <span class="toc-text">LEFT,RIGHT,UP,DOWN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ANY"><span class="toc-number">5.1.5.</span> <span class="toc-text">ANY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LAST"><span class="toc-number">5.1.6.</span> <span class="toc-text">LAST</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6307_u4EE4_u96C6"><span class="toc-number">5.2.</span> <span class="toc-text">指令集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u6CE8_u91CA"><span class="toc-number">5.2.1.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u6807_u7B7E"><span class="toc-number">5.2.2.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NOP"><span class="toc-number">5.2.3.</span> <span class="toc-text">NOP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MOV"><span class="toc-number">5.2.4.</span> <span class="toc-text">MOV</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/Game/" title="Game">Game<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Study/" title="Study">Study<sup>3</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Github/" title="Github">Github<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Json/" title="Json">Json<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Linux/" title="Linux">Linux<sup>1</sup></a></li>
+		
+			<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Screen/" title="Screen">Screen<sup>1</sup></a></li>
+		
+			<li><a href="/tags/TIS-100/" title="TIS-100">TIS-100<sup>1</sup></a></li>
+		
+			<li><a href="/tags/服务器/" title="服务器">服务器<sup>1</sup></a></li>
+		
+			<li><a href="/tags/求生之路/" title="求生之路">求生之路<sup>1</sup></a></li>
+		
+			<li><a href="/tags/静态博客/" title="静态博客">静态博客<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m YaCHEN <br/>
+			This is my blog, Fuck it.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by hexo and deployed on Github © 2015 - 2015 
+		
+		<a href="http://yachen4ever.github.io" target="_blank" title="YaCHEN">YaCHEN</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"yachen"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+  </body>
+</html>
