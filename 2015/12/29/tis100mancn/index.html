@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-29T15:58:31.000Z" itemprop="datePublished">2015-12-29</time>
-    更新日期:<time datetime="2015-12-29T17:48:07.335Z" itemprop="dateModified">2015-12-30</time>
+    更新日期:<time datetime="2015-12-29T17:56:35.186Z" itemprop="dateModified">2015-12-30</time>
     
   </p>
 </header>
@@ -142,9 +142,9 @@
 <li>类型：端口（伪端口）</li>
 <li>描述：LAST表示上一个使用ANY伪端口读写的实际端口。它相对应的明确了一个端口。在成功从ANY端口读或向ANY端口写使得LAST端口被成功设置之前，从LAST端口读或向LAST端口写会导致一个未定义的行为。请参考一遍独立的文档《栅格智能系统最佳实践：节点通信模式》来获取示范LAST端口用法的样例代码。</li>
 </ul>
-<h3 id="u6307_u4EE4_u96C6"><a href="#u6307_u4EE4_u96C6" class="headerlink" title="指令集"></a>指令集</h3><p>\<src\>和\<dst\>指令参数可以具体指定为一个端口或内部寄存器。在一个端口连接到相关节点完成读写通信操作前，任何对此端口的使用会被阻断。另外，<src>参数可能是-999～999（包含边界）之间的字面值整数。</src></dst\></src\></p>
-<p>BAK不能作为一个\<src\>或\<dst\>操作数。BAK的值仅可以通过特殊指令SAV和SWP访问。</dst\></src\></p>
-<p>用于跳转指定目标的\<label\>参数可以由任意字符构成。</label\></p>
+<h3 id="u6307_u4EE4_u96C6"><a href="#u6307_u4EE4_u96C6" class="headerlink" title="指令集"></a>指令集</h3><p>&lt;SRC&gt;和&lt;DST&gt;指令参数可以具体指定为一个端口或内部寄存器。在一个端口连接到相关节点完成读写通信操作前，任何对此端口的使用会被阻断。另外，&lt;SRC&gt;参数可能是-999～999（包含边界）之间的字面值整数。</p>
+<p>BAK不能作为一个&lt;SRC&gt;或&lt;DST&gt;操作数。BAK的值仅可以通过特殊指令SAV和SWP访问。</p>
+<p>用于跳转指定目标的&lt;LABEL&gt;参数可以由任意字符构成。</p>
 <h4 id="u6CE8_u91CA"><a href="#u6CE8_u91CA" class="headerlink" title="注释"></a>注释</h4><ul>
 <li>语法：# 注释文本</li>
 <li>描述：在一行中，注释符(#)后出现所有文本都会被忽略。<blockquote>
@@ -155,7 +155,7 @@
 </li>
 </ul>
 <h4 id="u6807_u7B7E"><a href="#u6807_u7B7E" class="headerlink" title="标签"></a>标签</h4><ul>
-<li>语法：\<label\>:</label\></li>
+<li>语法：&lt;LABEL&gt;:</li>
 <li>描述：标签被用来辨识跳转指令的目标地。当一个标签被用来作为跳转目标时，标签后的指令将会接着被执行。</li>
 <li>示例：<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">LOOP:</span>            <span class="preprocessor"># 这个标签独自占据一行</span></span><br><span class="line"><span class="label">L:</span> <span class="keyword">MOV</span> <span class="number">8</span>, ACC    <span class="preprocessor"># 这个标签和一条指令共用一行</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -166,8 +166,8 @@
 <li>描述：NOP是一条伪指令。使用NOP对节点的内部状态和通讯端口都没有任何作用。NOP会被自动转换成指令ADD NIL。</li>
 </ul>
 <h4 id="MOV"><a href="#MOV" class="headerlink" title="MOV"></a>MOV</h4><ul>
-<li>语法：MOV \<src\>,\<dst\></dst\></src\></li>
-<li>描述：<src>将会被读取，返回值会被写入\<dst\>。</dst\></src></li>
+<li>语法：MOV &lt;SRC&gt;,&lt;DST&gt;</li>
+<li>描述：&lt;SRC&gt;将会被读取，返回值会被写入&lt;DST&gt;。</li>
 <li>示例：<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MOV</span> <span class="number">8</span>, ACC       <span class="preprocessor"># 常值8被写入ACC寄存器</span></span><br><span class="line"><span class="keyword">MOV</span> LEFT, RIGHT  <span class="preprocessor"># LEFT中的值被读出然后写入RIGHT</span></span><br><span class="line"><span class="keyword">MOV</span> UP, NIL      <span class="preprocessor"># UP中的值被读出然后被舍弃</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -180,14 +180,14 @@
 <li>描述：将ACC中值写入BAK</li>
 </ul>
 <h4 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h4><ul>
-<li>语法：ADD \<src\></src\></li>
-<li>描述：\<src\>中的值与ACC相加，结果重写写入ACC</src\></li>
+<li>语法：ADD &lt;SRC&gt;</li>
+<li>描述：&lt;SRC&gt;中的值与ACC相加，结果重写写入ACC</li>
 <li>示例：<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ADD</span> <span class="bash"><span class="number">16</span>           <span class="comment"># 常值16与ACC相加，结果重写写入ACC</span></span><br><span class="line"></span><span class="built_in">ADD</span> <span class="bash">LEFT         <span class="comment"># LEFT中的值被读取并与ACC相加，结果重写写入ACC</span></span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="SUB"><a href="#SUB" class="headerlink" title="SUB"></a>SUB</h4><ul>
-<li>语法：SUB \<src\></src\></li>
-<li>描述：ACC减去\<src\>中的值，结果重写写入ACC</src\></li>
+<li>语法：SUB &lt;SRC&gt;</li>
+<li>描述：ACC减去&lt;SRC&gt;中的值，结果重写写入ACC</li>
 <li>示例：<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ADD</span> <span class="bash"><span class="number">16</span>           <span class="comment"># ACC减去常值16，结果重写写入ACC</span></span><br><span class="line"></span><span class="built_in">ADD</span> <span class="bash">LEFT         <span class="comment"># ACC减去LEFT中的值，结果重写写入ACC</span></span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -196,33 +196,33 @@
 <li>描述：对ACC取算数相反数并存入ACC，0值保持不变。</li>
 </ul>
 <h4 id="JMP"><a href="#JMP" class="headerlink" title="JMP"></a>JMP</h4><ul>
-<li>语法：JMP \<label\></label\></li>
-<li>描述：无条件跳转指令。标签\<label\>后的指令会紧接着被执行。</label\></li>
+<li>语法：JMP &lt;LABEL&gt;</li>
+<li>描述：无条件跳转指令。标签&lt;LABEL&gt;后的指令会紧接着被执行。</li>
 </ul>
 <h4 id="JEZ"><a href="#JEZ" class="headerlink" title="JEZ"></a>JEZ</h4><ul>
-<li>语法：JEZ \<label\></label\></li>
-<li>描述：条件跳转指令。如果ACC为0，标签\<label\>后的指令会紧接着被执行。</label\></li>
+<li>语法：JEZ &lt;LABEL&gt;</li>
+<li>描述：条件跳转指令。如果ACC为0，标签&lt;LABEL&gt;后的指令会紧接着被执行。</li>
 </ul>
 <h4 id="JNZ"><a href="#JNZ" class="headerlink" title="JNZ"></a>JNZ</h4><ul>
-<li>语法：JNZ \<label\></label\></li>
-<li>描述：条件跳转指令。如果ACC不为0，标签\<label\>后的指令会紧接着被执行。</label\></li>
+<li>语法：JNZ &lt;LABEL&gt;</li>
+<li>描述：条件跳转指令。如果ACC不为0，标签&lt;LABEL&gt;后的指令会紧接着被执行。</li>
 </ul>
 <h4 id="JGZ"><a href="#JGZ" class="headerlink" title="JGZ"></a>JGZ</h4><ul>
-<li>语法：JGZ \<label\></label\></li>
-<li>描述：条件跳转指令。如果ACC大于0，标签\<label\>后的指令会紧接着被执行。</label\></li>
+<li>语法：JGZ &lt;LABEL&gt;</li>
+<li>描述：条件跳转指令。如果ACC大于0，标签&lt;LABEL&gt;后的指令会紧接着被执行。</li>
 </ul>
 <h4 id="JLZ"><a href="#JLZ" class="headerlink" title="JLZ"></a>JLZ</h4><ul>
-<li>语法：JLZ \<label\></label\></li>
-<li>描述：条件跳转指令。如果ACC小于0，标签\<label\>后的指令会紧接着被执行。</label\></li>
+<li>语法：JLZ &lt;LABEL&gt;</li>
+<li>描述：条件跳转指令。如果ACC小于0，标签&lt;LABEL&gt;后的指令会紧接着被执行。</li>
 </ul>
 <h4 id="JRO"><a href="#JRO" class="headerlink" title="JRO"></a>JRO</h4><ul>
-<li>语法：JRO \<src\></src\></li>
-<li>描述：无条件跳转指令。会跳转到\<src\>指定的偏移量处执行。</src\></li>
+<li>语法：JRO &lt;SRC&gt;</li>
+<li>描述：无条件跳转指令。会跳转到&lt;SRC&gt;指定的偏移量处执行。</li>
 <li>示例：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JRO <span class="number">0</span>           <span class="preprocessor"># 重复执行本行语句，可以用来使得程序中断执行</span></span><br><span class="line">JRO -<span class="number">1</span>          <span class="preprocessor"># 跳转到上一行语句执行</span></span><br><span class="line">JRO <span class="number">2</span>           <span class="preprocessor"># 下一行语句将被跳过，直接执行下下行语句。</span></span><br><span class="line">JRO ACC         <span class="preprocessor"># 跳转到偏移量为ACC的行执行。</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="u793A_u4F8B_u7A0B_u5E8F"><a href="#u793A_u4F8B_u7A0B_u5E8F" class="headerlink" title="示例程序"></a>示例程序</h3><p>以下示例程序从LEFT端口读取数据，将其翻倍后写入RIGHT端口。由于基本执行节点的自动循环特性，该程序会完成最后的操作跳转至第一条指令继续执行。<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MOV</span> LEFT, ACC     <span class="preprocessor"># 读取LEFT端口中的数据保存至ACC寄存器</span></span><br><span class="line"><span class="keyword">ADD</span> ACC           <span class="preprocessor"># 将ACC值加至自身</span></span><br><span class="line"><span class="keyword">MOV</span> ACC, RIGHT    <span class="preprocessor"># 将ACC值写入RIGHT端口</span></span><br></pre></td></tr></table></figure></p>
-<p>以下示例程序从UP端口读取一个值序列，将其中的正值写入RIGHT端口，负值写入LEFT端口，0值丢弃。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">START</span>:</span><br><span class="line">	MOV UP, <span class="keyword">ACC</span>     # 读取UP端口中的数据保存至<span class="keyword">ACC</span>寄存器</span><br><span class="line">	JGZ POSITIVE    # 如果<span class="keyword">ACC</span>值&gt;<span class="number">0</span>，跳转至POSITIVE处继续执行</span><br><span class="line">	JLZ NEGATIVE    # 如果<span class="keyword">ACC</span>值&lt;<span class="number">0</span>，跳转至NEGATIVE处继续执行</span><br><span class="line">	JMP <span class="keyword">START</span>       # 此时如果还没跳转，说明<span class="keyword">ACC</span>值为<span class="number">0</span>，直接跳转至<span class="keyword">START</span>读取下一个数据</span><br><span class="line">POSITIVE:</span><br><span class="line">	MOV <span class="keyword">ACC</span>, <span class="keyword">RIGHT</span>  # 将<span class="keyword">ACC</span>值写入<span class="keyword">RIGHT</span>端口</span><br><span class="line">	JMP <span class="keyword">START</span>       # 跳转至<span class="keyword">START</span>读取下一个数据</span><br><span class="line">NEGATIVE:</span><br><span class="line">	MOV <span class="keyword">ACC</span>, <span class="keyword">LEFT</span>   # 将<span class="keyword">ACC</span>值写入<span class="keyword">LEFT</span>端口</span><br><span class="line">	JMP <span class="keyword">START</span>       # 跳转至<span class="keyword">START</span>读取下一个数据</span></span><br></pre></td></tr></table></figure></p>
+<p>以下示例程序从UP端口读取一个值序列，将其中的正值写入RIGHT端口，负值写入LEFT端口，0值丢弃。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">START</span>:</span><br><span class="line">	MOV UP, <span class="keyword">ACC</span>     # 读取UP端口中的数据保存至<span class="keyword">ACC</span>寄存器</span><br><span class="line">	JGZ POSITIVE    # 如果<span class="keyword">ACC</span>值&gt;<span class="number">0</span>，跳转至POSITIVE处继续执行</span><br><span class="line">	JLZ NEGATIVE    # 如果<span class="keyword">ACC</span>值&amp;lt;</span>0，跳转至NEGATIVE处继续执行</span><br><span class="line">	JMP <span class="operator"><span class="keyword">START</span>       # 此时如果还没跳转，说明<span class="keyword">ACC</span>值为<span class="number">0</span>，直接跳转至<span class="keyword">START</span>读取下一个数据</span><br><span class="line">POSITIVE:</span><br><span class="line">	MOV <span class="keyword">ACC</span>, <span class="keyword">RIGHT</span>  # 将<span class="keyword">ACC</span>值写入<span class="keyword">RIGHT</span>端口</span><br><span class="line">	JMP <span class="keyword">START</span>       # 跳转至<span class="keyword">START</span>读取下一个数据</span><br><span class="line">NEGATIVE:</span><br><span class="line">	MOV <span class="keyword">ACC</span>, <span class="keyword">LEFT</span>   # 将<span class="keyword">ACC</span>值写入<span class="keyword">LEFT</span>端口</span><br><span class="line">	JMP <span class="keyword">START</span>       # 跳转至<span class="keyword">START</span>读取下一个数据</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="u8282_u70B9_u7C7B_u578BT30_-__u6808_u5B58_u50A8_u8282_u70B9"><a href="#u8282_u70B9_u7C7B_u578BT30_-__u6808_u5B58_u50A8_u8282_u70B9" class="headerlink" title="节点类型T30 - 栈存储节点"></a>节点类型T30 - 栈存储节点</h2><h3 id="u67B6_u6784-1"><a href="#u67B6_u6784-1" class="headerlink" title="架构"></a>架构</h3><p>栈存储节点基于一个简单的栈通信协议，支持大数的读写操作。（请参考具体模型手册来获取特定设备上的栈存储节点的容量。）</p>
 <h3 id="u901A_u4FE1_u534F_u8BAE"><a href="#u901A_u4FE1_u534F_u8BAE" class="headerlink" title="通信协议"></a>通信协议</h3><p>栈存储节点上的所有交互通过端口完成。向栈存储节点写入数据会将数据保存至栈顶。如果一个栈已满，写入操作会被阻断直到空间可用。从栈存储节点读取数据会移除栈顶数据并将其作为返回值返回。如果一个栈为空，读取操作会被阻断直到一个值可用。</p>
 <p>栈存储节点通常会连接很多其他节点，并可被其他节点所使用。同时对同一节点进行读和写操作会以不确定的顺序完成，但任一通讯都会按照描述的通信协议进行。要获取更多关于高效并可预测地使用多个存储节点，请参考一遍独立的文档《栅格智能系统最佳实践：节点通信模式》。</p>
