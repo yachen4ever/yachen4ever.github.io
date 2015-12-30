@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-29T15:58:31.000Z" itemprop="datePublished">2015-12-29</time>
-    更新日期:<time datetime="2015-12-30T02:39:42.824Z" itemprop="dateModified">2015-12-30</time>
+    更新日期:<time datetime="2015-12-30T03:18:21.619Z" itemprop="dateModified">2015-12-30</time>
     
   </p>
 </header>
@@ -188,7 +188,7 @@
 <h4 id="SUB"><a href="#SUB" class="headerlink" title="SUB"></a>SUB</h4><ul>
 <li>语法：SUB &lt;SRC&gt;</li>
 <li>描述：ACC减去&lt;SRC&gt;中的值，结果重写写入ACC</li>
-<li>示例：<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ADD</span> <span class="bash"><span class="number">16</span>           <span class="comment"># ACC减去常值16，结果重写写入ACC</span></span><br><span class="line"></span><span class="built_in">ADD</span> <span class="bash">LEFT         <span class="comment"># ACC减去LEFT中的值，结果重写写入ACC</span></span></span><br></pre></td></tr></table></figure>
+<li>示例：<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SUB</span> <span class="number">16</span>           <span class="preprocessor"># ACC减去常值16，结果重写写入ACC</span></span><br><span class="line"><span class="keyword">SUB</span> LEFT         <span class="preprocessor"># ACC减去LEFT中的值，结果重写写入ACC</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="NEG"><a href="#NEG" class="headerlink" title="NEG"></a>NEG</h4><ul>
