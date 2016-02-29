@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-12-18T06:52:24.000Z" itemprop="datePublished">2015-12-18</time>
-    更新日期:<time datetime="2015-12-18T15:59:49.238Z" itemprop="dateModified">2015-12-18</time>
+    更新日期:<time datetime="2016-02-29T12:09:08.224Z" itemprop="dateModified">2016-02-29</time>
     
   </p>
 </header>
@@ -131,6 +131,7 @@
 <p>这样运行L4D2虽然没有问题，但你必须保持SSH连接一直打开，万一不小心关闭了服务器就也没了，很不方便，我推荐使用后台去运行服务器，在命令前只需简单的加入一个nohup即可。<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./srcds_run -game left4dead2 +exec <span class="keyword">server</span>.cfg</span><br></pre></td></tr></table></figure></p>
 <p>像这样后台运行，如果你想彻底关闭服务器，你需要ps -ef查看进程并kill掉srcds的pid。</p>
 <p>可以使用绝对路径并随便将这个run.sh文件放置在任何地方，以后直接启动run.sh，你便可以和朋友们开心的L4D2了！</p>
+<p>另外，你也可以使用screen来替代nohup，screen比nohup使用起来更为方便、容错率更高，我的下一篇博文详细描述了screen的使用方法。</p>
 <h2 id="u611F_u8C22"><a href="#u611F_u8C22" class="headerlink" title="感谢"></a>感谢</h2><p>感谢以下参阅过的资料：<br><a href="https://developer.valvesoftware.com/wiki/SteamCMD" target="_blank" rel="external">https://developer.valvesoftware.com/wiki/SteamCMD</a><br><a href="http://forums.steampowered.com/forums/showthread.php?t=1381634" target="_blank" rel="external">http://forums.steampowered.com/forums/showthread.php?t=1381634</a></p>
 <p>最后，向大家推荐下我和朋友们玩过的所有第三方战役，请参阅：<a href="http://yacmap.xyz/l4d2maps.html" target="_blank" rel="external">http://yacmap.xyz/l4d2maps.html</a></p>
   
