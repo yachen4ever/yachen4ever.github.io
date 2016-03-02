@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ExtJS 开发环境配置（Spket） | YaCHEN Factory</title>
+    <title>Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法 | YaCHEN Factory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="YaCHEN">
     
-    <meta name="description" itemprop="description" content="最近系统的学习了一下ExtJS框架，一开始是一直使用Notepad++进行开发的，直到发现了Spket这个Eclipse插件可以提供很多Notepad++不具备的功能，配置起来也很简单，现将过程记录如下。">
+    <meta name="description" itemprop="description" content="一直没有接触对于我这种个人用户来说很“臃肿的”Oracle，今天使用Navicat连接公司的Oracle数据库时，Navicat提示“unsupported server character set zhs16gbk”，我搜索了一些资料，将解决方法记录如下。">
     
     
     
@@ -73,15 +73,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/29/extenv/" title="ExtJS 开发环境配置（Spket）" itemprop="url">ExtJS 开发环境配置（Spket）</a>
+      <a href="/2016/03/02/navicatoracle/" title="Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法" itemprop="url">Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yachen4ever.github.io" title="YaCHEN">YaCHEN</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-02-29T07:42:47.000Z" itemprop="datePublished">2016-02-29</time>
-    更新日期:<time datetime="2016-02-29T12:04:24.360Z" itemprop="dateModified">2016-02-29</time>
+    <time datetime="2016-03-02T03:37:18.000Z" itemprop="datePublished">2016-03-02</time>
+    更新日期:<time datetime="2016-03-02T05:25:17.727Z" itemprop="dateModified">2016-03-02</time>
     
   </p>
 </header>
@@ -90,35 +90,30 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7248_u672C_u4FE1_u606F"><span class="toc-number">2.</span> <span class="toc-text">版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_u8FC7_u7A0B"><span class="toc-number">3.</span> <span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6548_u679C_u6F14_u793A"><span class="toc-number">4.</span> <span class="toc-text">效果演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u4E9B_u5907_u6CE8"><span class="toc-number">5.</span> <span class="toc-text">一些备注</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u95EE_u9898_u63CF_u8FF0"><span class="toc-number">2.</span> <span class="toc-text">问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8F6F_u4EF6_u7248_u672C"><span class="toc-number">2.1.</span> <span class="toc-text">软件版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9519_u8BEF_u622A_u56FE"><span class="toc-number">2.2.</span> <span class="toc-text">错误截图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9519_u8BEF_u539F_u56E0"><span class="toc-number">2.3.</span> <span class="toc-text">错误原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u529E_u6CD5"><span class="toc-number">2.4.</span> <span class="toc-text">解决办法</span></a></li></ol></li></ol>
 		</div>
 		
-		<h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>最近在实习，借机系统的学习了一下ExtJS框架，一开始是一直使用Notepad++进行开发的，直到发现了Skept这个Eclipse插件可以提供很多Notepad++不具备的功能，配置起来也很简单，现将过程记录如下。</p>
-<h3 id="u7248_u672C_u4FE1_u606F"><a href="#u7248_u672C_u4FE1_u606F" class="headerlink" title="版本信息"></a>版本信息</h3><p> –ExtJS 3.4 (<a href="http://www.xuchen.wang/down/ext-3.4.0.zip" target="_blank" rel="external">http://www.xuchen.wang/down/ext-3.4.0.zip</a>)<br> –Eclipse Kepler Java EE IDE for Web Developers（Eclipse版本差异无影响）<br> (<a href="https://www.eclipse.org/downloads/packages/release/Kepler/SR2" target="_blank" rel="external">https://www.eclipse.org/downloads/packages/release/Kepler/SR2</a>)<br> Spket 1.6.23 (<a href="http://www.xuchen.wang/down/spket-1.6.23.jar" target="_blank" rel="external">http://www.xuchen.wang/down/spket-1.6.23.jar</a>)</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li>Eclipse版本差异无影响。</li>
-<li>Spket需要Java 1.5及以上版本运行支持。</li>
-<li>ExtJS大版本不同差异比较多，Ext2.x系列，3.x系列，4.x系列迁移起来耗时较多，建议认准一个版本然后稳定保持。</li>
-</ol>
-<h3 id="u5B89_u88C5_u8FC7_u7A0B"><a href="#u5B89_u88C5_u8FC7_u7A0B" class="headerlink" title="安装过程"></a>安装过程</h3><p>1.将Spket下载好后直接使用java运行（如果你jdk版本低于1.6或没有配置jar默认打开方式为java.exe再或不想配置，可以使用cmd输入java -jar spket-1.6.23.jar）。在安装时Spket安装程序会让你选择Spket是以现有Eclipse的插件形式安装还是以一个独立IDE形式安装。如果选择插件形式，下一步你需要输入Eclipse根目录，而独立IDE也就是一个极其精简版的Eclipse。这里我们使用以插件形式安装。</p>
-<p>2.安装完毕后打开Eclipse，打开Window菜单Preferences选项。在左侧选择Spket（如果没有说明你安装不成功）中的JavaScript Profiles，如图所示。<br><img src="http://xuchen.wang/img/extenv1.png" alt="extenv1"></p>
-<p>3.点击右侧的New，输入ExtJS（这个名字无所谓）。再点击Add Library，在下拉菜单中选择ExtJS。如图所示。</p>
-<p><img src="http://xuchen.wang/img/extenv2.png" alt="extenv2"></p>
-<p>4.点击右侧的Add File,选择ExtJS存放目录下的ext.jsb2,ext-all.js,ext-all-debug.js三个文件。如图所示。</p>
-<p><img src="http://xuchen.wang/img/extenv3.png" alt="extenv3"></p>
-<p>5.选中最开始命名的ExtJS，点击右侧Default。</p>
-<p>重启Eclipse，即可使用。</p>
-<p><strong>注意：</strong><br>如果没有自动补全和提示效果，很可能是因为你没有将Spket设置为默认JS编辑器。<br>解决办法：打开Eclipse的Window菜单Preferences选项，左侧选择Gerenal-&gt;Editor-&gt;File Associations，右侧上面File Types选择*.js，下侧将Spket JavaScript Editor设为Default，然后重新打开js文件即可。如图所示。<br><img src="http://xuchen.wang/img/extenv5.png" alt="extenv5"></p>
-<h3 id="u6548_u679C_u6F14_u793A"><a href="#u6548_u679C_u6F14_u793A" class="headerlink" title="效果演示"></a>效果演示</h3><p>这样Spket就安装好了，你会发现你在写ExtJS时会得到这样的效果：<br><img src="http://xuchen.wang/img/extenv4.png" alt="extenv4"></p>
-<h3 id="u4E00_u4E9B_u5907_u6CE8"><a href="#u4E00_u4E9B_u5907_u6CE8" class="headerlink" title="一些备注"></a>一些备注</h3><p>学习ExtJs我使用的这本书：<br><a href="http://xuchen.wang/down/extbook.part1.rar" target="_blank" rel="external">http://xuchen.wang/down/extbook.part1.rar</a><br><a href="http://xuchen.wang/down/extbook.part2.rar" target="_blank" rel="external">http://xuchen.wang/down/extbook.part2.rar</a><br>书中配套光盘中的实例文件：<br><a href="http://xuchen.wang/down/ext-sample.rar" target="_blank" rel="external">http://xuchen.wang/down/ext-sample.rar</a></p>
+		<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>一直没有接触对于我这种个人用户来说很“臃肿的”Oracle。而我平时管理数据库一直使用备受我雪推荐的Navicat。今天使用Navicat连接公司的Oracle数据库时，Navicat提示“unsupported server character set zhs16gbk”，我搜索了一些资料，将解决方法记录如下。</p>
+<h2 id="u95EE_u9898_u63CF_u8FF0"><a href="#u95EE_u9898_u63CF_u8FF0" class="headerlink" title="问题描述"></a>问题描述</h2><h3 id="u8F6F_u4EF6_u7248_u672C"><a href="#u8F6F_u4EF6_u7248_u672C" class="headerlink" title="软件版本"></a>软件版本</h3><blockquote>
+<ul>
+<li>Navicat Premium 11.0</li>
+<li>服务器Oracle 10g</li>
+</ul>
+</blockquote>
+<h3 id="u9519_u8BEF_u622A_u56FE"><a href="#u9519_u8BEF_u622A_u56FE" class="headerlink" title="错误截图"></a>错误截图</h3><p>当尝试使用Navicat连接数据库时，提示：<br><img src="http://xuchen.wang/navicatoracle1.png" alt="img"></p>
+<h3 id="u9519_u8BEF_u539F_u56E0"><a href="#u9519_u8BEF_u539F_u56E0" class="headerlink" title="错误原因"></a>错误原因</h3><p>ZHS16GBK是Oracle一种特有的中文字符集命名方式。Oracle提供了Oracle Call Interface（Oracle调用接口），而Navicat正是使用OCI去连接Oracle数据库。在Navicat菜单中选择“工具-&gt;选项-&gt;其他-&gt;OCI”，在右侧可以看到Navicat使用的OCI Library地址，如图所示。<br><img src="http://xuchen.wang/navicatoracle2.png" alt="img2"><br>我安装的Navicat此配置为“..\Navicat Premium\instantclient_10_2\oci.dll”。</p>
+<p>可以看到，此处OCI版本为10.2，而根据Oracle文档，OCI11以上版本才提供了zhs16gbk字符集支持。</p>
+<h3 id="u89E3_u51B3_u529E_u6CD5"><a href="#u89E3_u51B3_u529E_u6CD5" class="headerlink" title="解决办法"></a>解决办法</h3><p>我们只需要下载最新版的Instant Client然后将Navicat的OCI路径修改一下就可以运行了。</p>
+<p>Instant Client：<a href="http://www.oracle.com/technetwork/topics/winsoft-085727.html" target="_blank" rel="external">http://www.oracle.com/technetwork/topics/winsoft-085727.html</a></p>
+<p>下载后解压至Navicat Premium目录，路径设置为..\Navicat Premium\instantclient_12\OCI.dll。</p>
+<p>至此，即可正常使用Navicat连接管理zhs16gbk编码的Oracle数据库。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Eclipse/">Eclipse</a><a href="/tags/ExtJS/">ExtJS</a><a href="/tags/JavaScript/">JavaScript</a><a href="/tags/Skept/">Skept</a>
+  <span></span> <a href="/tags/Navicat/">Navicat</a><a href="/tags/Oracle/">Oracle</a><a href="/tags/ZHS16GBK/">ZHS16GBK</a><a href="/tags/数据库/">数据库</a>
   </div>
 
 
@@ -131,7 +126,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yachen4ever.github.io/2016/02/29/extenv/" data-title="ExtJS 开发环境配置（Spket） | YaCHEN Factory" data-tsina="null" class="share clearfix">
+  <div data-url="http://yachen4ever.github.io/2016/03/02/navicatoracle/" data-title="Navicat连接Oracle数据库时提示不支持字符集ZHS16GBK的解决办法 | YaCHEN Factory" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -140,19 +135,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/02/mavenfolder/" title="修改Maven本地依赖库的默认存放位置">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  修改Maven本地依赖库的默认存放位置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/12/29/tis100mancn/"  title="TIS-100用户手册中文版">
+<a href="/2016/03/02/mavenfolder/"  title="修改Maven本地依赖库的默认存放位置">
  <strong>NEXT:</strong><br/> 
- <span>TIS-100用户手册中文版
+ <span>修改Maven本地依赖库的默认存放位置
 </span>
 </a>
 </div>
@@ -171,7 +158,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7248_u672C_u4FE1_u606F"><span class="toc-number">2.</span> <span class="toc-text">版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_u8FC7_u7A0B"><span class="toc-number">3.</span> <span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6548_u679C_u6F14_u793A"><span class="toc-number">4.</span> <span class="toc-text">效果演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u4E9B_u5907_u6CE8"><span class="toc-number">5.</span> <span class="toc-text">一些备注</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u95EE_u9898_u63CF_u8FF0"><span class="toc-number">2.</span> <span class="toc-text">问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8F6F_u4EF6_u7248_u672C"><span class="toc-number">2.1.</span> <span class="toc-text">软件版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9519_u8BEF_u622A_u56FE"><span class="toc-number">2.2.</span> <span class="toc-text">错误截图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u9519_u8BEF_u539F_u56E0"><span class="toc-number">2.3.</span> <span class="toc-text">错误原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u529E_u6CD5"><span class="toc-number">2.4.</span> <span class="toc-text">解决办法</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
