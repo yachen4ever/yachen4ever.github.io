@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-03-02T02:01:27.000Z" itemprop="datePublished">2016-03-02</time>
-    更新日期:<time datetime="2016-03-02T02:19:09.338Z" itemprop="dateModified">2016-03-02</time>
+    更新日期:<time datetime="2016-03-02T02:23:16.520Z" itemprop="dateModified">2016-03-02</time>
     
   </p>
 </header>
@@ -90,19 +90,14 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u6539_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">修改过程</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u6539_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">修改过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539_25MAVEN_HOME_25/conf/settings-xml"><span class="toc-number">2.1.</span> <span class="toc-text">修改%MAVEN_HOME%/conf/settings.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5728Eclipse_u4E2D_u4FEE_u6539settings-xml_u4F4D_u7F6E_u3002"><span class="toc-number">2.2.</span> <span class="toc-text">在Eclipse中修改settings.xml位置。</span></a></li></ol></li></ol>
 		</div>
 		
 		<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>Maven默认把本地依赖库放在~/.m2/repository/文件夹（～指用户目录）。而用户目录不特意设置都会在C盘。Maven的所有构件都会被存储到依赖库中，很快，你的C盘莫名其妙就被填满了。所以，我们不得不考虑修改下Maven本地依赖库的存放位置。</p>
-<h2 id="u4FEE_u6539_u8FC7_u7A0B"><a href="#u4FEE_u6539_u8FC7_u7A0B" class="headerlink" title="修改过程"></a>修改过程</h2><ol>
-<li>修改%MAVEN_HOME%/conf/settings.xml(MAVEN_HOME表示MAVEN安装目录)。</li>
-</ol>
+<h2 id="u4FEE_u6539_u8FC7_u7A0B"><a href="#u4FEE_u6539_u8FC7_u7A0B" class="headerlink" title="修改过程"></a>修改过程</h2><h3 id="u4FEE_u6539_25MAVEN_HOME_25/conf/settings-xml"><a href="#u4FEE_u6539_25MAVEN_HOME_25/conf/settings-xml" class="headerlink" title="修改%MAVEN_HOME%/conf/settings.xml"></a>修改%MAVEN_HOME%/conf/settings.xml</h3><p>MAVEN_HOME表示MAVEN安装目录。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- localRepository</span><br><span class="line"> | The path to the local repository maven will use to store artifacts.</span><br><span class="line"> |</span><br><span class="line"> | Default: $&#123;user.home&#125;/.m2/repository--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">localRepository</span>&gt;</span>D:/work/repository<span class="tag">&lt;/<span class="title">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>将<localrepository>标签内容改为你想使用的目录。</localrepository></p>
-<ol>
-<li>在Eclipse中修改settings.xml位置。</li>
-</ol>
-<p>打开Eclipse，Window菜单-&gt;Preference-&gt;Maven-&gt;User Settings，右侧User Settings改为刚刚的%MAVEN_HOME%/conf/settings.xml，然后点击Update，下方Local Repository便应该已经变成你刚刚配置的Repo目录了。</p>
+<h3 id="u5728Eclipse_u4E2D_u4FEE_u6539settings-xml_u4F4D_u7F6E_u3002"><a href="#u5728Eclipse_u4E2D_u4FEE_u6539settings-xml_u4F4D_u7F6E_u3002" class="headerlink" title="在Eclipse中修改settings.xml位置。"></a>在Eclipse中修改settings.xml位置。</h3><p>打开Eclipse，Window菜单-&gt;Preference-&gt;Maven-&gt;User Settings，右侧User Settings改为刚刚的%MAVEN_HOME%/conf/settings.xml，然后点击Update，下方Local Repository便应该已经变成你刚刚配置的Repo目录了。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -154,7 +149,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u6539_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">修改过程</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u6539_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">修改过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4FEE_u6539_25MAVEN_HOME_25/conf/settings-xml"><span class="toc-number">2.1.</span> <span class="toc-text">修改%MAVEN_HOME%/conf/settings.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5728Eclipse_u4E2D_u4FEE_u6539settings-xml_u4F4D_u7F6E_u3002"><span class="toc-number">2.2.</span> <span class="toc-text">在Eclipse中修改settings.xml位置。</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
