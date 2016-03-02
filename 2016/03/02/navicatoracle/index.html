@@ -81,7 +81,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-03-02T03:37:18.000Z" itemprop="datePublished">2016-03-02</time>
-    更新日期:<time datetime="2016-03-02T05:25:17.727Z" itemprop="dateModified">2016-03-02</time>
+    更新日期:<time datetime="2016-03-02T05:27:59.810Z" itemprop="dateModified">2016-03-02</time>
     
   </p>
 </header>
@@ -100,8 +100,8 @@
 <li>服务器Oracle 10g</li>
 </ul>
 </blockquote>
-<h3 id="u9519_u8BEF_u622A_u56FE"><a href="#u9519_u8BEF_u622A_u56FE" class="headerlink" title="错误截图"></a>错误截图</h3><p>当尝试使用Navicat连接数据库时，提示：<br><img src="http://xuchen.wang/navicatoracle1.png" alt="img"></p>
-<h3 id="u9519_u8BEF_u539F_u56E0"><a href="#u9519_u8BEF_u539F_u56E0" class="headerlink" title="错误原因"></a>错误原因</h3><p>ZHS16GBK是Oracle一种特有的中文字符集命名方式。Oracle提供了Oracle Call Interface（Oracle调用接口），而Navicat正是使用OCI去连接Oracle数据库。在Navicat菜单中选择“工具-&gt;选项-&gt;其他-&gt;OCI”，在右侧可以看到Navicat使用的OCI Library地址，如图所示。<br><img src="http://xuchen.wang/navicatoracle2.png" alt="img2"><br>我安装的Navicat此配置为“..\Navicat Premium\instantclient_10_2\oci.dll”。</p>
+<h3 id="u9519_u8BEF_u622A_u56FE"><a href="#u9519_u8BEF_u622A_u56FE" class="headerlink" title="错误截图"></a>错误截图</h3><p>当尝试使用Navicat连接数据库时，提示：<br><img src="http://xuchen.wang/img/navicatoracle1.png" alt="img"></p>
+<h3 id="u9519_u8BEF_u539F_u56E0"><a href="#u9519_u8BEF_u539F_u56E0" class="headerlink" title="错误原因"></a>错误原因</h3><p>ZHS16GBK是Oracle一种特有的中文字符集命名方式。Oracle提供了Oracle Call Interface（Oracle调用接口），而Navicat正是使用OCI去连接Oracle数据库。在Navicat菜单中选择“工具-&gt;选项-&gt;其他-&gt;OCI”，在右侧可以看到Navicat使用的OCI Library地址，如图所示。<br><img src="http://xuchen.wang/img/navicatoracle2.png" alt="img2"><br>我安装的Navicat此配置为“..\Navicat Premium\instantclient_10_2\oci.dll”。</p>
 <p>可以看到，此处OCI版本为10.2，而根据Oracle文档，OCI11以上版本才提供了zhs16gbk字符集支持。</p>
 <h3 id="u89E3_u51B3_u529E_u6CD5"><a href="#u89E3_u51B3_u529E_u6CD5" class="headerlink" title="解决办法"></a>解决办法</h3><p>我们只需要下载最新版的Instant Client然后将Navicat的OCI路径修改一下就可以运行了。</p>
 <p>Instant Client：<a href="http://www.oracle.com/technetwork/topics/winsoft-085727.html" target="_blank" rel="external">http://www.oracle.com/technetwork/topics/winsoft-085727.html</a></p>
