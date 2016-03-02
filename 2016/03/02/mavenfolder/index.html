@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>ExtJS 开发环境配置（Spket） | YaCHEN Factory</title>
+    <title>修改Maven本地依赖库的默认存放位置 | YaCHEN Factory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="YaCHEN">
     
-    <meta name="description" itemprop="description" content="最近系统的学习了一下ExtJS框架，一开始是一直使用Notepad++进行开发的，直到发现了Spket这个Eclipse插件可以提供很多Notepad++不具备的功能，配置起来也很简单，现将过程记录如下。">
+    <meta name="description" itemprop="description" content="Maven默认把本地依赖库放在~/.m2/repository/文件夹（～指用户目录）。而用户目录不特意设置都会在C盘。Maven的所有构件都会被存储到依赖库中，很快，你的C盘莫名其妙就被填满了。所以，我们不得不考虑修改下Maven本地依赖库的存放位置。">
     
     
     
@@ -73,15 +73,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/29/extenv/" title="ExtJS 开发环境配置（Spket）" itemprop="url">ExtJS 开发环境配置（Spket）</a>
+      <a href="/2016/03/02/mavenfolder/" title="修改Maven本地依赖库的默认存放位置" itemprop="url">修改Maven本地依赖库的默认存放位置</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yachen4ever.github.io" title="YaCHEN">YaCHEN</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-02-29T07:42:47.000Z" itemprop="datePublished">2016-02-29</time>
-    更新日期:<time datetime="2016-02-29T12:04:24.360Z" itemprop="dateModified">2016-02-29</time>
+    <time datetime="2016-03-02T02:01:27.000Z" itemprop="datePublished">2016-03-02</time>
+    更新日期:<time datetime="2016-03-02T02:19:09.338Z" itemprop="dateModified">2016-03-02</time>
     
   </p>
 </header>
@@ -90,35 +90,26 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7248_u672C_u4FE1_u606F"><span class="toc-number">2.</span> <span class="toc-text">版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_u8FC7_u7A0B"><span class="toc-number">3.</span> <span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6548_u679C_u6F14_u793A"><span class="toc-number">4.</span> <span class="toc-text">效果演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u4E9B_u5907_u6CE8"><span class="toc-number">5.</span> <span class="toc-text">一些备注</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u6539_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">修改过程</span></a></li></ol>
 		</div>
 		
-		<h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>最近在实习，借机系统的学习了一下ExtJS框架，一开始是一直使用Notepad++进行开发的，直到发现了Skept这个Eclipse插件可以提供很多Notepad++不具备的功能，配置起来也很简单，现将过程记录如下。</p>
-<h3 id="u7248_u672C_u4FE1_u606F"><a href="#u7248_u672C_u4FE1_u606F" class="headerlink" title="版本信息"></a>版本信息</h3><p> –ExtJS 3.4 (<a href="http://www.xuchen.wang/down/ext-3.4.0.zip" target="_blank" rel="external">http://www.xuchen.wang/down/ext-3.4.0.zip</a>)<br> –Eclipse Kepler Java EE IDE for Web Developers（Eclipse版本差异无影响）<br> (<a href="https://www.eclipse.org/downloads/packages/release/Kepler/SR2" target="_blank" rel="external">https://www.eclipse.org/downloads/packages/release/Kepler/SR2</a>)<br> Spket 1.6.23 (<a href="http://www.xuchen.wang/down/spket-1.6.23.jar" target="_blank" rel="external">http://www.xuchen.wang/down/spket-1.6.23.jar</a>)</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li>Eclipse版本差异无影响。</li>
-<li>Spket需要Java 1.5及以上版本运行支持。</li>
-<li>ExtJS大版本不同差异比较多，Ext2.x系列，3.x系列，4.x系列迁移起来耗时较多，建议认准一个版本然后稳定保持。</li>
+		<h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>Maven默认把本地依赖库放在~/.m2/repository/文件夹（～指用户目录）。而用户目录不特意设置都会在C盘。Maven的所有构件都会被存储到依赖库中，很快，你的C盘莫名其妙就被填满了。所以，我们不得不考虑修改下Maven本地依赖库的存放位置。</p>
+<h2 id="u4FEE_u6539_u8FC7_u7A0B"><a href="#u4FEE_u6539_u8FC7_u7A0B" class="headerlink" title="修改过程"></a>修改过程</h2><ol>
+<li>修改%MAVEN_HOME%/conf/settings.xml(MAVEN_HOME表示MAVEN安装目录)。</li>
 </ol>
-<h3 id="u5B89_u88C5_u8FC7_u7A0B"><a href="#u5B89_u88C5_u8FC7_u7A0B" class="headerlink" title="安装过程"></a>安装过程</h3><p>1.将Spket下载好后直接使用java运行（如果你jdk版本低于1.6或没有配置jar默认打开方式为java.exe再或不想配置，可以使用cmd输入java -jar spket-1.6.23.jar）。在安装时Spket安装程序会让你选择Spket是以现有Eclipse的插件形式安装还是以一个独立IDE形式安装。如果选择插件形式，下一步你需要输入Eclipse根目录，而独立IDE也就是一个极其精简版的Eclipse。这里我们使用以插件形式安装。</p>
-<p>2.安装完毕后打开Eclipse，打开Window菜单Preferences选项。在左侧选择Spket（如果没有说明你安装不成功）中的JavaScript Profiles，如图所示。<br><img src="http://xuchen.wang/img/extenv1.png" alt="extenv1"></p>
-<p>3.点击右侧的New，输入ExtJS（这个名字无所谓）。再点击Add Library，在下拉菜单中选择ExtJS。如图所示。</p>
-<p><img src="http://xuchen.wang/img/extenv2.png" alt="extenv2"></p>
-<p>4.点击右侧的Add File,选择ExtJS存放目录下的ext.jsb2,ext-all.js,ext-all-debug.js三个文件。如图所示。</p>
-<p><img src="http://xuchen.wang/img/extenv3.png" alt="extenv3"></p>
-<p>5.选中最开始命名的ExtJS，点击右侧Default。</p>
-<p>重启Eclipse，即可使用。</p>
-<p><strong>注意：</strong><br>如果没有自动补全和提示效果，很可能是因为你没有将Spket设置为默认JS编辑器。<br>解决办法：打开Eclipse的Window菜单Preferences选项，左侧选择Gerenal-&gt;Editor-&gt;File Associations，右侧上面File Types选择*.js，下侧将Spket JavaScript Editor设为Default，然后重新打开js文件即可。如图所示。<br><img src="http://xuchen.wang/img/extenv5.png" alt="extenv5"></p>
-<h3 id="u6548_u679C_u6F14_u793A"><a href="#u6548_u679C_u6F14_u793A" class="headerlink" title="效果演示"></a>效果演示</h3><p>这样Spket就安装好了，你会发现你在写ExtJS时会得到这样的效果：<br><img src="http://xuchen.wang/img/extenv4.png" alt="extenv4"></p>
-<h3 id="u4E00_u4E9B_u5907_u6CE8"><a href="#u4E00_u4E9B_u5907_u6CE8" class="headerlink" title="一些备注"></a>一些备注</h3><p>学习ExtJs我使用的这本书：<br><a href="http://xuchen.wang/down/extbook.part1.rar" target="_blank" rel="external">http://xuchen.wang/down/extbook.part1.rar</a><br><a href="http://xuchen.wang/down/extbook.part2.rar" target="_blank" rel="external">http://xuchen.wang/down/extbook.part2.rar</a><br>书中配套光盘中的实例文件：<br><a href="http://xuchen.wang/down/ext-sample.rar" target="_blank" rel="external">http://xuchen.wang/down/ext-sample.rar</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- localRepository</span><br><span class="line"> | The path to the local repository maven will use to store artifacts.</span><br><span class="line"> |</span><br><span class="line"> | Default: $&#123;user.home&#125;/.m2/repository--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">localRepository</span>&gt;</span>D:/work/repository<span class="tag">&lt;/<span class="title">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将<localrepository>标签内容改为你想使用的目录。</localrepository></p>
+<ol>
+<li>在Eclipse中修改settings.xml位置。</li>
+</ol>
+<p>打开Eclipse，Window菜单-&gt;Preference-&gt;Maven-&gt;User Settings，右侧User Settings改为刚刚的%MAVEN_HOME%/conf/settings.xml，然后点击Update，下方Local Repository便应该已经变成你刚刚配置的Repo目录了。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Eclipse/">Eclipse</a><a href="/tags/ExtJS/">ExtJS</a><a href="/tags/JavaScript/">JavaScript</a><a href="/tags/Skept/">Skept</a>
+  <span></span> <a href="/tags/Eclipse/">Eclipse</a><a href="/tags/Java/">Java</a><a href="/tags/Maven/">Maven</a>
   </div>
 
 
@@ -131,7 +122,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yachen4ever.github.io/2016/02/29/extenv/" data-title="ExtJS 开发环境配置（Spket） | YaCHEN Factory" data-tsina="null" class="share clearfix">
+  <div data-url="http://yachen4ever.github.io/2016/03/02/mavenfolder/" data-title="修改Maven本地依赖库的默认存放位置 | YaCHEN Factory" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -140,19 +131,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/02/mavenfolder/" title="修改Maven本地依赖库的默认存放位置">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  修改Maven本地依赖库的默认存放位置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/12/29/tis100mancn/"  title="TIS-100用户手册中文版">
+<a href="/2016/02/29/extenv/"  title="ExtJS 开发环境配置（Spket）">
  <strong>NEXT:</strong><br/> 
- <span>TIS-100用户手册中文版
+ <span>ExtJS 开发环境配置（Spket）
 </span>
 </a>
 </div>
@@ -171,7 +154,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7248_u672C_u4FE1_u606F"><span class="toc-number">2.</span> <span class="toc-text">版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_u8FC7_u7A0B"><span class="toc-number">3.</span> <span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6548_u679C_u6F14_u793A"><span class="toc-number">4.</span> <span class="toc-text">效果演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u4E9B_u5907_u6CE8"><span class="toc-number">5.</span> <span class="toc-text">一些备注</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u6539_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">修改过程</span></a></li></ol>
   </div>
 
 <div id="asidepart">
